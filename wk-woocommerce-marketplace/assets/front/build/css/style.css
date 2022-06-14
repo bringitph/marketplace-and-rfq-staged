@@ -1,0 +1,421 @@
+/**
+ * Styling for front pages (other than Seller Dashboard and endpoints) like My-Account, shop follower, become a seller etc.
+ *
+ * Seller Dashboard and its Endpoints css are written front.css.
+ */
+
+/** Globally used css starts **/
+@font-face {
+    font-family: "Webkul Rango";
+    src: url("../../../fonts/rango.eot");
+    src: url("../../../fonts/rango.woff") format("woff"),
+    url("../../../fonts/rango.ttf") format("truetype"),
+    url("../../../fonts/rango.svg#filename") format("svg");
+}
+
+.wkmp_hide {
+    display: none;
+}
+
+.wkmp_show {
+    display: block;
+}
+
+.wkmp-text-left {
+    text-align: left;
+}
+
+.wkmp-text-center {
+    text-align: center;
+}
+
+.wkmp-text-right {
+    text-align: right;
+}
+
+.wkmp-pull-right {
+    float: right !important;
+}
+
+.mp-select {
+    background: transparent;
+    border-radius: 3px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-group {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 36px;
+    padding: 8px 13px;
+    font-size: 13px;
+    line-height: 1.42857;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #96588a;
+    border-radius: 3px;
+}
+
+.form-group.wkmp-popup-model {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.form-group.wkmp-popup-model .wkmp-width-45 {
+    width: 46%;
+}
+
+.form-group.wkmp-popup-model {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.form-group.wkmp-popup-model .wkmp-width-45 input[type="number"] {
+    width: 95%;
+}
+
+.wkmp-button-danger {
+    color: #fff;
+    background-color: #e3503e;
+    border-color: #dd3520;
+}
+
+.wkmp-button-success {
+    color: #fff;
+    background-color: #4cb64c;
+    border-color: #409e40;
+}
+
+.close {
+    float: right;
+    font-size: 19.5px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+
+button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 18px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    overflow: auto;
+}
+
+.alert-dismissible {
+    padding-right: 30px;
+}
+
+.alert-dismissible .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+}
+
+.alert-danger {
+    background-color: #f5c1bb;
+    border-color: #f3b5ad;
+    color: #c72f1d;
+}
+
+.text-danger {
+    color: #e3503e;
+}
+
+.wkmp-green {
+    color: green;
+}
+
+.carret {
+    position: relative;
+    cursor: pointer;
+}
+
+.carret:before {
+    content: '';
+    position: absolute;
+    top: 38%;
+    left: 213px;
+    border-top: 7px solid #999;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+}
+
+.carret:hover:before {
+    border-top-color: #222;
+}
+
+/** Globally used css Ends **/
+
+/** Registration fields css starts here **/
+.wkmp-seller-registration-fields .wkmp-fw-600 {
+    font-weight: 600;
+}
+
+.wkmp-text-danger,
+.wkmp-error p,
+.error-class {
+    color: #FF0606;
+}
+
+.wkmp-text-success {
+    color: #3EAB10;
+}
+
+.wkmp-text-right {
+    text-align: right;
+}
+
+.wkmp-overflow-x-auto {
+    overflow-x: auto;
+}
+.wk-mp-loader {
+    background: #000;
+    display: none;
+    height: 100%;
+    opacity: .6;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 11111
+}
+
+.wk-mp-spinner {
+    bottom: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 48px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 48px
+}
+
+.woocommerce-active .thickbox-loading #TB_title {
+    height: 50px !important;
+    padding-top: 9px;
+    font-size: 22px
+}
+
+.woocommerce-active .thickbox-loading .shipping-method-add-cost fieldset {
+    padding: 0;
+    margin: 10px 0;
+}
+
+.woocommerce-active .thickbox-loading .select.wc-enhanced-select, .thickbox-loading .shipping-method-modal select {
+    padding: 8px 10px;
+    border-radius: 3px;
+    border: 1px solid #D5D5D5;
+    background-color: #fff;
+    width: 100%;
+}
+
+.wkmp-seller-registration-fields .wkmp-role-selector-section {
+    margin-bottom: 15px;
+}
+
+.wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector {
+    border: 2px solid #96588a;
+    display: inline-block;
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-top: 10px;
+    padding: 0;
+    width: 265px;
+}
+
+.wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector li {
+    background-color: #ffffff;
+    cursor: pointer;
+    list-style-type: none;
+    padding: 10px 15px;
+    position: relative;
+    width: auto;
+}
+
+.wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector li:first-child {
+    float: left;
+}
+
+.wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector li:last-child {
+    float: right;
+}
+
+.wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector li input[type=radio] {
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/** General Seller register buttons **/
+li.wkmp-button.wkmp-customer.active, li.wkmp-button.wkmp-seller.active {
+    background-color: #96588a;
+    color: #ffffff;
+}
+
+/** General Seller register buttons starts **/
+/** 1. Twenty-Twenty One Starts **/
+.theme-twentytwentyone li.wkmp-button.wkmp-customer.active, .theme-twentytwentyone li.wkmp-button.wkmp-seller.active {
+    background-color: #28303d;
+}
+.theme-twentytwentyone .wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector {
+    border-color: #28303d;
+}
+
+/** 1. Twenty-Twenty One ends **/
+
+/** 2. Flatsome Starts **/
+.theme-flatsome li.wkmp-button.wkmp-customer.active, .theme-flatsome li.wkmp-button.wkmp-seller.active {
+    background-color: #446084;
+}
+.theme-flatsome li.wkmp-button.wkmp-customer.active label, .theme-flatsome li.wkmp-button.wkmp-seller.active label{
+    color: #fff;
+}
+
+.theme-flatsome .wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector {
+    border-color: #446084;
+}
+
+/** 2. Flatsome ends **/
+
+/** 3. Astra Starts **/
+.theme-astra li.wkmp-button.wkmp-customer.active, .theme-astra li.wkmp-button.wkmp-seller.active {
+    background-color: #0170B9;
+}
+
+.theme-astra .wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector {
+    border-color: #0170B9;
+    width: 260px;
+}
+
+/** 3. Astra ends **/
+
+/** 4. Divi Starts **/
+.theme-Divi li.wkmp-button.wkmp-customer.active, .theme-Divi li.wkmp-button.wkmp-seller.active {
+    background-color: #0170B9;
+}
+
+.theme-Divi .wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector {
+    border-color: #0170B9;
+    width: 260px;
+    padding: 0 !important;
+}
+.theme-Divi li.woocommerce-MyAccount-navigation-link {
+    line-height: 1.85em;
+}
+
+/** 4. Divi ends **/
+
+/** 5. Dimita Starts **/
+.theme-dimita  li.wkmp-button.wkmp-customer.active, .theme-dimita li.wkmp-button.wkmp-seller.active {
+    background-color: #f15a24;
+}
+
+.theme-dimita .wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector {
+    border-color: #f15a24;
+    width: 260px;
+}
+
+/** 5. Dimita ends **/
+
+/** 6. Miniature Starts **/
+.theme-miniature  li.wkmp-button.wkmp-customer.active, .theme-miniature li.wkmp-button.wkmp-seller.active {
+    background-color: #ee233f;
+}
+
+.theme-miniature .wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector {
+    border-color: #ee233f;
+    width: 275px;
+}
+
+/** 6. Miniature ends **/
+
+/** 7. nozama-lite Starts **/
+.theme-nozama-lite  li.wkmp-button.wkmp-customer.active, .theme-nozama-lite li.wkmp-button.wkmp-seller.active {
+    background-color: #F08804;
+}
+
+.theme-nozama-lite .wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector {
+    border-color: #F08804;
+    width: 260px;
+}
+
+/** 7. nozama-lite ends **/
+
+/** 8. theme-philos Starts **/
+.theme-philos  li.wkmp-button.wkmp-customer.active, .theme-philos li.wkmp-button.wkmp-seller.active {
+    background-color: #333;
+}
+.theme-philos li.wkmp-button.wkmp-customer.active label, .theme-philos li.wkmp-button.wkmp-seller.active label{
+    color: #fff;
+}
+
+.theme-philos .wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector {
+    border-color: #333;
+    width: 260px;
+}
+
+/** 8. theme-philos ends **/
+
+/** 9. theme-philos Starts **/
+.theme-hello-elementor .wkmp-seller-registration-fields .wkmp-role-selector-section .wkmp-role-selector {
+    width: 270px;
+}
+
+/** 8. theme-philos ends **/
+
+/** General Seller register buttons ends **/
+
+/** Registration fields css ends here  **/
+
+.mp-product-author-shop .wkmp-loader-wrapper {
+    display: inline-block;
+    position: relative;
+    left: 5px;
+    top: 5px;
+}
+.woocommerce .wkmp-table-responsive {
+    overflow-x: scroll;
+}
+
+.woocommerce .wkmp-confirmation-msg {
+    position: absolute;
+    top: 14%;
+    left: 68%;
+    color: white;
+    background: gray;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    border-radius: 5px;
+    width: 42%;
+    text-align: center;
+}
+

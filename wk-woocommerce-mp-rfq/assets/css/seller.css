@@ -1,0 +1,177 @@
+.wk-mp-rfq .nav-tab-wrapper {
+  border-radius: 3px;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+.wk-mp-rfq .nav-tab-wrapper .nav-tab {
+  color: #666;
+  background: #d8d8d8;
+  outline: 0;
+  text-decoration: none !important;
+  border-bottom: solid 1px #ccc;
+  padding: 5px 8px 8px;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  margin-right: 5px;
+}
+.wk-mp-rfq .nav-tab-wrapper .nav-tab-active {
+  border-bottom: none;
+  padding-bottom: 9px;
+  background-color: #fff;
+}
+#seller-quote-comment-image-add, #wpmp-rfq-form-upload-button{
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+}
+#seller-quote-comment-image-add::before, #wpmp-rfq-form-upload-button::before{
+	background: 0 0;
+    color: #72777c;
+    content: "\f502";
+    font: normal 20px/20px dashicons;
+    vertical-align: middle;
+}
+#wpmp-rfq-form-image, #wk-mp-rfq-image-container{
+	display: block;
+}
+#wk-mp-rfq-image-container img, #wk-mp-rfq-comment-image-container img, #wpmp-rfq-form-image img, .wpmp-rfq-form-pro-img {
+	width: 50px;
+	display: inline-block;
+	margin-right: 5px;
+}
+.wk-seller_tab_comment td{
+	border-bottom: 1px solid #80808042;
+}
+#wk-mp-rfq-comment-image-container{
+	display: block;
+	padding:5px 0px;
+}
+.wk-seller_tab_comment .wk-sup-bold {
+	font-weight: 700;
+	font-size: 14px;
+}
+textarea#seller-quote-comment {
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+input#seller-quote-quantity, input#seller-quote-price{
+	width: 100%;
+}
+#wk-seller-quotation-form table tbody tr th{
+	vertical-align: middle;
+}
+.wk-sup-status-sec{
+	font-weight: 600;
+}
+#wpmp-rfq-new-quote-form .forminp input, #wpmp-rfq-new-quote-form .forminp textarea{
+	max-width: 98%;
+}
+#wpmp-rfq-new-quote-form table tbody tr th label{
+	font-weight: 600;
+}
+#wpmp-rfq-new-quote-form table tbody tr th{
+	vertical-align: middle;
+	width:20%;
+}
+
+.wk-sup-comment-body{
+	background: #d7cad2;
+	padding: 2px 10px;
+	position: relative;
+	border-radius: 5px;
+	margin-bottom: 2px;
+}
+.wkmprfq-message-arrow-self::after{
+    border-color: #d7cad2 transparent;
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-width: 10px 10px 0 0;
+    border-style: solid;
+}
+
+.wkmprfq-message-arrow-other::after{
+    border-color: #d7cad2 transparent;
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-width: 10px 10px 0 0;
+    border-style: solid;
+}
+
+.wk-sup-comment-head {
+	font-size: 15px;
+    font-style: italic;
+}
+.wkmprfq-message-self{
+	text-align: left;
+	padding-top: 3px;
+}
+
+.wkmprfq-message-other{
+	text-align: right;
+	padding-top: 3px;
+}
+
+.wk-sup-comment-body .wk-sup-bold {
+	font-weight: 600;
+}
+.wkmp-rfq-seller-quote table, .wk-rfq-main-quote table, .wkmp-rfq-sut-edit-quote table {
+	border: 1px solid #928d8d;
+}
+.quotation-list-wrapper{
+	position: relative;
+}
+.quotation-list-wrapper h2{
+	display: inline-block;
+}
+.quotation-list-wrapper .add-new-quotation{
+	display: inline-block;
+	position: absolute;
+	vertical-align: top;
+	right: 0px;
+}
+.wk_accepted_quote::after{
+    color: #72777c;
+    content: "\f12a";
+    font: normal 20px/20px dashicons;
+    vertical-align: middle;
+}
+p.wk-sup-comment-body.wkmprfq-message-arrow-self {
+    margin-right: 20%;
+}
+p.wk-sup-comment-body.wkmprfq-message-arrow-other {
+    margin-left: 20%;
+}
+.wk-rfq-main-quote table tbody tr td:not(:first-child) {
+    word-break: break-word;
+}
+td#wkmp-nodata-td{
+	text-align: center;
+}
+table.woocommerce-orders-table tbody tr td.woocommerce-orders-table__cell-quote-actions{
+	text-align: center !important;
+}
+.wk-mp-loader-rfq {
+    background: #000;
+    display: none;
+    height: 100%;
+    opacity: .6;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999999;
+    left: 0;
+}

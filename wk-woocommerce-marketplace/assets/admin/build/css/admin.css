@@ -1,0 +1,707 @@
+/** Marketplace Admin CSS. */
+.wkmp-textarea {
+  resize: none;
+}
+fieldset.mp-fieldset {
+  padding: 10px;
+  border-color: black;
+  width: fit-content;
+  border-style: groove;
+  border-width: 2px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: inline-block;
+  margin-right: 20px;
+}
+fieldset.mp-fieldset legend {
+  font-size: 20px;
+}
+fieldset.mp-fieldset table {
+  width: auto;
+}
+.button-warning {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+.button-success {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.woocommerce-account {
+  width: 100%;
+}
+.wk-transaction-view {
+  line-height: 30px;
+}
+.wk-transaction-view table {
+  border: 1px solid silver;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  width: 100%;
+}
+.wk-transaction-view table thead {
+  background-color: #eee;
+}
+.wk-transaction-view table thead th {
+  padding: 1.41575em;
+  vertical-align: middle;
+}
+.wk-transaction-view table tbody td {
+  padding: 1.41575em;
+  vertical-align: middle;
+}
+.wk-transaction-view div h3 {
+  margin-top: 30px;
+}
+.wk-transaction-view div span {
+  font-size: 14px;
+}
+.mp-notification-list {
+  list-style: disc;
+  margin: 15px 0 0;
+  padding-left: 30px;
+  font-size: 13px;
+  color: #666;
+  line-height: 25px;
+}
+.mp-notification-pagination {
+  padding-left: 15px;
+  margin-top: 20px;
+}
+.mp-notification-pagination a,
+.mp-notification-pagination span {
+  border: 1px solid;
+  padding: 2px 6px;
+  text-decoration: none;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+.text-danger {
+  font-size: 17px;
+  font-weight: normal;
+  color: #FF0606;
+}
+.text-success {
+  font-size: 17px;
+  font-weight: 400;
+  color: #3EAB10;
+}
+@media only screen and (max-width: 768px) {
+  .mp-dashboard-wrapper .mp-store-recent-orders table td,
+  .mp-dashboard-wrapper .mp-store-recent-orders table th {
+	padding: 5px 0px;
+	font-size: 12px;
+  }
+  .mp-seller-data table {
+	width: 100%;
+  }
+}
+.mp-dashboard-wrapper .mp-store-recent-orders table {
+  border: none;
+  width: 100%;
+}
+.mp-dashboard-wrapper .mp-store-recent-orders table td,
+.mp-dashboard-wrapper .mp-store-recent-orders table th {
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+  font-size: 16px;
+  padding: 10px 5px;
+  word-break: break-word;
+}
+.mp-dashboard-wrapper .mp-store-recent-orders h4,
+.mp-dashboard-wrapper .mp-store-top-billing-country h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #96588a;
+}
+.mp-dashboard-wrapper .mp-store-recent-orders h4 a,
+.mp-dashboard-wrapper .mp-store-top-billing-country h4 a {
+  float: right;
+  font-weight: 500;
+}
+.wk_profileupdate .wkmp_profile_preview_link {
+  text-align: right;
+}
+.wk_profileupdate .wkmp_profile_preview_link a {
+  outline: none;
+}
+.wk_profileupdate .wkmp_profile_input {
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+.wk_profileupdate .wkmp_profile_input label {
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.wk_profileupdate .wkmp_profile_input input[type="text"],
+.wk_profileupdate .wkmp_profile_input textarea {
+  padding: 10px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #43454b;
+  outline: 0;
+  border: 1px solid #d5d5d5;
+  -webkit-appearance: none;
+  border-radius: 2px;
+  box-sizing: border-box;
+  font-weight: 400;
+  line-height: normal;
+  box-shadow: none;
+}
+.wk_profileupdate .wkmp_profile_input input[type="text"][disabled="disabled"],
+.wk_profileupdate .wkmp_profile_input textarea[disabled="disabled"] {
+  background-color: #d6d6d6;
+  pointer-events: none;
+}
+.wk_profileupdate .wkmp_profile_input .banner-checkbox input {
+  display: inline-block;
+  margin-right: 8px;
+}
+.wk_profileupdate .wkmp_profile_input .banner-checkbox label {
+  font-weight: normal;
+}
+.wk_profileupdate .wkmp_shop_banner {
+  position: relative;
+}
+.wk_profileupdate .wkmp_shop_banner #wk_seller_banner {
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+.wk_profileupdate .wkmp_shop_banner #wk_seller_banner img {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #E8E4E3;
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+.wk_profileupdate .wkmp_shop_banner .wkmp-fade-banner {
+  background: none repeat scroll 0 0 #3E3E3E;
+  color: #FFFFFF;
+  display: none;
+  height: 45px;
+  position: absolute;
+  right: 0px;
+  text-align: center;
+  width: 96px;
+  z-index: 999;
+  margin: auto;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 10px;
+}
+.wk_profileupdate .wkmp_shop_banner:hover .wkmp-fade-banner {
+  display: block;
+}
+.wk_profileupdate .wkmp_shop_banner .wkmp_up_shop_banner {
+  display: none;
+}
+.wk_profileupdate .wkmp_avatar_logo_section {
+  display: table;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo {
+  display: table-cell;
+  vertical-align: top;
+  width: 50%;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .wkmp_editmp_img,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .wkmp_editmp_img,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .seller_logo_img,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .seller_logo_img {
+  border: 1px solid #eee;
+  display: inline-block;
+  position: relative;
+  width: 110px;
+  margin-right: 10px;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .wkmp_editmp_img img,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .wkmp_editmp_img img,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .seller_logo_img img,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .seller_logo_img img {
+  width: 100%;
+  max-width: 100%;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .wkmp-fileUpload,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .wkmp-fileUpload {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .wkmp-fileUpload label,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .wkmp-fileUpload label {
+  display: block;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .wkmp-fileUpload span,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .wkmp-fileUpload span {
+  display: block;
+  position: relative;
+  margin-top: 10px;
+  text-align: center;
+  max-width: 100px;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .wkmp-fileUpload span .upload,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .wkmp-fileUpload span .upload {
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+.wk_profileupdate {
+  margin: 20px;
+}
+.wk_profileupdate .wkmp_profile_preview_link h1 {
+  float: left;
+  margin-right: -160px;
+}
+.wk_profileupdate .wkmp_profile_preview_link a {
+  outline: 0;
+}
+.wk_profileupdate .wkmp_profile_input {
+  margin-bottom: 30px;
+}
+.wk_profileupdate .wkmp_profile_input label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.wk_profileupdate .wkmp_profile_input input[type=text],
+.wk_profileupdate .wkmp_profile_input textarea {
+  padding: 10px;
+  width: 100%;
+  background-color: #fff;
+  color: #43454b;
+  outline: 0;
+  border: 1px solid #d5d5d5;
+  -webkit-appearance: none;
+  border-radius: 2px;
+  box-sizing: border-box;
+  font-weight: 400;
+  line-height: normal;
+  box-shadow: none;
+}
+.wk_profileupdate .wkmp_profile_input input[type=text][disabled=disabled],
+.wk_profileupdate .wkmp_profile_input textarea[disabled=disabled] {
+  background-color: #d6d6d6;
+  pointer-events: none;
+}
+.wk_profileupdate .wkmp_profile_input .banner-checkbox input {
+  display: inline-block;
+  margin-right: 8px;
+}
+.wk_profileupdate .wkmp_profile_input .banner-checkbox label {
+  font-weight: 400;
+}
+.wk_profileupdate .wkmp_shop_banner {
+  position: relative;
+}
+.wk_profileupdate .wkmp_shop_banner #wk_seller_banner {
+  margin-bottom: 20px;
+  max-width: 100%;
+  position: relative;
+}
+.wk_profileupdate .wkmp_shop_banner #wk_seller_banner img {
+  background: none repeat scroll 0 0 #fff;
+  border: 1px solid #e8e4e3;
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+.wk_profileupdate .wkmp_shop_banner .wkmp-fade-banner {
+  background: none repeat scroll 0 0 #3e3e3e;
+  color: #fff;
+  display: none;
+  height: 45px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 96px;
+  z-index: 999;
+  margin: auto;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 10px;
+}
+.wk_profileupdate .wkmp_shop_banner .wkmp-fade-banner p {
+  color: #fff;
+}
+.wk_profileupdate .wkmp_shop_banner:hover .wkmp-fade-banner {
+  display: block;
+}
+.wk_profileupdate .wkmp_shop_banner .wkmp_up_shop_banner {
+  display: none;
+}
+.wk_profileupdate .wkmp_avatar_logo_section {
+  display: table;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg {
+  display: table-cell;
+  vertical-align: top;
+  width: 50%;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .seller_logo_img,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .wkmp_editmp_img,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .seller_logo_img,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .wkmp_editmp_img {
+  border: 1px solid #eee;
+  display: inline-block;
+  position: relative;
+  width: 110px;
+  margin-right: 10px;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .seller_logo_img img,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .wkmp_editmp_img img,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .seller_logo_img img,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .wkmp_editmp_img img {
+  width: 100%;
+  max-width: 100%;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .wkmp-fileUpload,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .wkmp-fileUpload {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .wkmp-fileUpload label,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .wkmp-fileUpload label {
+  display: block;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .wkmp-fileUpload span,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .wkmp-fileUpload span {
+  display: block;
+  position: relative;
+  margin-top: 10px;
+  text-align: center;
+  max-width: 100px;
+}
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profile_logo .wkmp-fileUpload span .upload,
+.wk_profileupdate .wkmp_avatar_logo_section .wkmp_profileimg .wkmp-fileUpload span .upload {
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+/** CSS for extensions page from 4.9.3 (21-06-25) **/
+.all-extensions .over {
+  margin: 0 auto;
+  text-align: left;
+  padding: 20px 20px 10px;
+  min-height: 135px;
+  background-color: #fafafa;
+}
+.mp-extension-block{
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.all-extensions .over .over-text {
+  text-align: left;
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - 165px);
+
+}
+.all-extensions .over .over-link {
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 30px;
+}
+.all-extensions .over .over-text p{
+  margin: 1px 0 0;
+}
+.all-extensions .over h3 {
+  font-weight: 600;
+  line-height: 23px;
+  margin: 0 0 10px 0;
+  font-size: 19px;
+}
+.all-extensions .over .made-for-link{
+  display: inline-block;
+  vertical-align: top;
+  font-style: italic;
+  margin: 1px 0;
+}
+.all-extensions .over .made-for{
+  display: inline-block;
+  vertical-align: top;
+  margin: 1px 5px 1px 0;
+  font-style: italic;
+  font-weight: 200;
+}
+.mp-extension-bottom{
+  text-align:left;
+  clear: both;
+  padding: 12px 20px;
+  background-color: #fafafa;
+  border-top: 1px solid #ddd;
+  overflow: hidden;
+}
+.all-extensions .last-updated-on{
+  display: inline-block;
+  vertical-align: top;
+  margin: 1px 5px 0 0;
+  font-style: italic;
+  font-weight: 200;
+}
+.all-extensions .last-updated-on-date{
+  display: inline-block;
+  vertical-align: top;
+  margin: 1px 0;
+  padding: 0;
+  color: #0073aa;
+}
+.buy-now-class{
+  float: right;
+  clear: right;
+  max-width: 180px;
+}
+.last-updated{
+  text-align: justify;
+  height: 92px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  display: -moz-box;
+  -webkit-box-orient: vertical;
+  margin-bottom: 8px;
+  float: left;
+  clear: left;
+  /*width: 65%;*/
+  width: calc(100% - 180px);
+}
+.all-extensions .over p{
+  margin-top: 0;
+}
+
+.all-extensions .over .over-text .link-extension{
+  margin: 10px auto;
+  display: block;
+  text-align: center;
+}
+.backend-image{
+  display: inline-block;
+  width: 130px;
+  height: auto;
+}
+.mp-addons-block-item{
+  display: inline-block;
+  text-align: center;
+  width: calc(49% - 17px);
+  vertical-align: top;
+  margin: 9px;
+}
+.button-mp {
+  background: #63a94c;
+  border-color: #388E3C;
+  box-shadow: 0 1px 0 #388E3C;
+  color: #fff;
+  text-decoration: none;
+
+}
+.button-mp-fadded{
+  color: #555;
+  border-color: #ccc;
+  background: #f7f7f7;
+  box-shadow: 0 1px 0 #ccc;
+  vertical-align: top;
+}
+.button-primary-mp-fadded{
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 26px;
+  height: 28px;
+  margin: 0;
+  padding: 0 22px 1px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.button-mp:hover, .button-mp:active, .button-mp:focus{
+  color: #fff;
+  border: 1px solid #1B5E20;
+  box-shadow: 0 1px 0 #1B5E20;
+}
+.button-mp-fadded:hover, .button-mp-fadded:active, .button-mp-fadded:focus{
+  background: #fafafa;
+  border-color: #999;
+  color: #23282d;
+}
+.button-primary-mp{
+  display: inline-block;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 26px;
+  height: 28px;
+  margin: 0;
+  padding: 0 10px 1px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.mp-addons-block-item img{
+  box-sizing: border-box;
+  max-height: 130px;
+}
+
+.mp-addons-block-item .over a{
+  border: 0;
+  box-shadow: none;
+  text-decoration: none;
+  word-break: break-word;
+}
+.mp-extensions-tab .nav-tab{
+  display: none;
+}
+.mp-extensions-tab{
+  border-bottom: 0;
+}
+.mp-extensions-tab:not(.wp-clearfix):after{
+  display: none;
+}
+.mp-extensions-submenu-wrap{
+  display: inline-block;
+  margin: 12px 0 25px;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0,0,0,.04);
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  color: #555;
+  font-size: 13px;
+}
+.mp-extensions-submenu{
+  list-style: none;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 15px 0 8px 5px;
+}
+.mp-extensions-submenu a.current{
+  font-weight: 600;
+  border: none;
+  box-shadow: none;
+  border-bottom: 4px solid #666;
+  color: #23282d;
+}
+.mp-extensions-submenu a {
+  line-height: 2;
+  padding: .2em;
+  text-decoration: none;
+  margin: 0 10px;
+  border-bottom: 4px solid #fff;
+  color: #666;
+  cursor: pointer;
+}
+.search-result-back-button{
+  display: inline-block;
+  width: 98%;
+}
+.search-result-back-button h3{
+  float: left;
+}
+.search-result-back-button .back-button-mp-extensions{
+  float: right;
+}
+.mp-extensions-submenu li:hover,.mp-extensions-submenu li:focus,.mp-extensions-submenu li:active{
+  outline: none;
+}
+.mp-extensions-submenu a:hover{
+  color: #00a0d2;
+  outline: none;
+}
+.search-mp-extensions {
+  float: right;
+  margin: 10px 10px 10px 0;
+}
+.search-mp-extensions span{
+  display: none;
+}
+.search-mp-extensions input[type=search]{
+  margin: 0;
+  padding: 3px 5px;
+  width: 250px;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+.search-mp-extensions .hide-search-box{
+  display: none;
+}
+.mp-extensions-submenu a:active,.mp-extensions-submenu a:focus{
+  outline: none;
+  box-shadow:none;
+}
+.form-table .wkmp-section td {
+  padding: 5px 0 0 0;
+}
+.action.column-action .wkmp-order-status.spinner {
+  visibility: visible;
+  position: relative;
+  right: 60%;
+}
+.wkmp-hide, .wkmp_hide{
+  display:none;
+}
+.wkmp_avatar_logo_section .wkmp-seller-profile {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px;
+}
+.wkmp_avatar_logo_section .wkmp-seller-profile i{
+  font-size: 12px;
+  font-weight: 400;
+}
+.wkmp_avatar_logo_section .wkmp-img-thumbnail {
+  padding: 15px 10px 0 0;
+  width: 110px;
+  max-width: 110px;
+}
+.wkmp_shop_banner .wkmp_remove_banner {
+  font-size: 15px;
+  font-weight: bold;
+  color:#fff;
+  background-color:#da2020
+}
+.wp-list-table.sellerorders .column-action .select2.select2-container {
+  width: auto !important;
+}
+.marketplace_page_order-history #wpfooter {
+    position: inherit;
+}

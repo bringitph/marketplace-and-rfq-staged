@@ -1,0 +1,91 @@
+#wpmp-rfq-quote-dialog-box-wrap{
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:rgba(78, 78, 78, 0.62);
+    z-index: 99999;
+}
+#wpmp-rfq-quote-dialog-box{
+	max-width: 700px;
+    margin: 0 auto;
+    margin-top: 5%;
+    overflow-y: scroll;
+    max-height: 80%;
+    position: relative;
+}
+#wpmp-rfq-quote-dialog-box-wrap .wpmp-rfq-quote-form-wrapper {
+    padding: 10px 20px;
+    background: #fff;
+}
+#wpmp-rfq-quote-dialog-box-wrap .wpmp-rfq-quote-form-wrapper .wpmp-rfq-form-header h2 {
+    font-weight: 600;
+    padding: 13px 0;
+}
+#wpmp-rfq-quote-dialog-box-wrap .wpmp-rfq-quote-form-wrapper .wpmp-rfq-form-body {
+    padding: 10px 0px;
+}
+
+#wpmp-rfq-quote-dialog-box-wrap .wpmp-rfq-quote-form-wrapper .wpmp-rfq-form-body .wpmp-rfq-form-row label{
+	display: block;
+    font-size: 17px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+#wpmp-rfq-quote-dialog-box-wrap .wpmp-rfq-quote-form-wrapper .wpmp-rfq-form-body .wpmp-rfq-form-row input{
+	width: 100%;
+    margin-bottom: 5px;
+    line-height: 17px;
+    max-width: 100%;
+}
+#wpmp-rfq-form-image img{
+	width: 50px;
+}
+#wpmp-rfq-quote-form-close{
+	position: absolute;
+    right: 5px;
+	z-index: 9999;
+}
+#wpmp-rfq-quote-form-close::before{
+	background: 0 0;
+    color: #72777c;
+    content: "\f153";
+    font: normal 20px/20px dashicons;
+    cursor: pointer;
+}
+#womp-rfq-quote-wraper, button#wpmp-rfq-form-quote-submit {
+	margin: 10px 0;
+}
+#wpmp-rfq-quote-form input{
+	width: 100%;
+}
+.wpmp-rfq-form-pro-img-wrap{
+	position: relative;
+    width: 50px;
+    display: inline-block;
+    height: 50px;
+    margin: 0 5px;
+}
+.wpmp-rfq-form-pro-img-wrap::before{
+	background: 0 0;
+    color: #72777c;
+    content: "\f153";
+    font: normal 20px/20px dashicons;
+    cursor: pointer;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+}
+.wk-mp-loader-rfq {
+    background: #000;
+    display: none;
+    height: 100%;
+    opacity: .6;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999999;
+    left: 0;
+}

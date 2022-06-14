@@ -1,0 +1,44 @@
+<?php
+/**
+ * Google analytics tracking.
+ */
+?>
+ga( 'require', 'ecommerce' );
+ga( 'ecommerce:addTransaction', <?php echo wp_json_encode( $ga_data['transaction'] ); ?>);
+<?php
+foreach ( $ga_data['products'] as $pro ) {
+	?>
+    ga('ecommerce:addItem', {
+    'id': '<?php echo esc_js( $pro['id'] ); ?>',
+    'name': '<?php echo esc_attr( $pro['name'] ); ?>',
+    'sku': '<?php echo esc_attr( $pro['sku'] ); ?>',
+    'category': "<?php echo esc_attr( $pro['category'] ); ?>",
+    'price': '<?php echo esc_js( $pro['price'] ); ?>',
+    'quantity': '<?php echo esc_js( $pro['quantity'] ); ?>',
+    'brand': '<?php echo esc_js( $pro['brand'] ); ?>',
+    'variant': '<?php echo esc_js( $pro['variant'] ); ?>',
+    });
+	<?php
+	$send_data = array(
+		'id'       => $pro['id'],
+		'name'     => $pro['name'],
+		'sku'      => $pro['sku'],
+		'category' => $pro['category'],
+		'price'    => $pro['price'],
+		'quantity' => $pro['quantity'],
+		'brand'    => $pro['brand'],
+		'variant'  => $pro['variant'],
+	);
+	$wkmarketplace->log( "Data send for order id: " . $ga_data['transaction']['id'] . " is: " . print_r( $send_data, true ) );
+}
+?>
+var wkmpGAData = {
+hitType: 'event',
+eventCategory: 'ecommerce',
+eventAction: 'purchase',
+eventValue: <?php echo esc_js( absint( $ga_data['transaction']['revenue'] ) ); ?>
+};
+
+ga('send', wkmpGAData);
+ga('ecommerce:send');
+

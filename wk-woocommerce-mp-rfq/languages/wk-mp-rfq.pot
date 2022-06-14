@@ -1,0 +1,864 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Marketplace Request for Quotation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-20 11:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.1; wp-5.3.2"
+
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:272
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:289
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:350
+msgid " by "
+msgstr ""
+
+#: includes/class-wc-email-mp-rfq-notification.php:24
+msgid " RFQ Notification"
+msgstr ""
+
+#: helper/class-womprfq-quote-handler.php:159
+#: helper/class-womprfq-quote-handler.php:214
+msgid "A new requested has been submitted by "
+msgstr ""
+
+#: helper/class-womprfq-quote-handler.php:142
+msgid "A new requested has been submitted by you."
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-table-template.php:54
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:138
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:143
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:117
+msgid "Action"
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-main-quote.php:144
+#: templates/front/customer/class-womprfq-customer-main-quote.php:206
+#: templates/front/customer/class-womprfq-customer-template.php:74
+#: templates/front/customer/class-womprfq-customer-template.php:139
+msgid "Actions"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:117
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:41
+msgid "Add Attribute"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-template.php:234
+#: templates/front/seller/class-womprfq-seller-template.php:235
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:135
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:136
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:157
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:158
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:267
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:268
+msgid "Add image"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:119
+#: templates/front/customer/class-womprfq-customer-add-new-product-quote.php:89
+msgid "Add Images"
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-add-new-product-quote.php:44
+#: templates/front/customer/class-womprfq-customer-template.php:67
+msgid "Add New Product RFQ"
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:206
+msgid "Add Product to cart"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-template.php:140
+#: templates/front/seller/class-womprfq-seller-template.php:242
+#: templates/front/seller/class-womprfq-seller-table-template.php:62
+msgid "Add Quotation"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:112
+#: templates/front/customer/class-womprfq-customer-add-new-product-quote.php:81
+msgid "Add Sample Images"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:274
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:291
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:352
+msgid "Admin"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-template.php:34
+#: templates/front/seller/class-womprfq-seller-template.php:85
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:33
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:36
+#: templates/front/customer/class-womprfq-customer-main-quote.php:77
+#: templates/front/customer/class-womprfq-customer-main-quote.php:130
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:41
+msgid "Answered"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:32
+msgid "Attribute"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:198
+msgid "ATTRIBUTE INFO"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:52
+msgid "Attribute Information"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:114
+msgid "Attribute List"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:113
+msgid "Attribute Name"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:194
+msgid "Attribute Status"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:158
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:114
+msgid "Attribute Type"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:33
+msgid "Attributes"
+msgstr ""
+
+#: includes/admin/class-womprfq-function-handler.php:73
+#: includes/admin/class-womprfq-function-handler.php:74
+msgid "Attributes List"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:112
+msgid "Atttribute Id"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:45
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:169
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:50
+msgid "Back"
+msgstr ""
+
+#: helper/class-womprfq-quote-handler.php:196
+msgid "Bulk Quantity Requested : "
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:167
+msgid "Click here to approve the quoted price."
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-template.php:36
+#: templates/front/seller/class-womprfq-seller-template.php:87
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:35
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:39
+#: templates/front/customer/class-womprfq-customer-main-quote.php:79
+#: templates/front/customer/class-womprfq-customer-main-quote.php:132
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:43
+msgid "Closed"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-template.php:226
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:127
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:149
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:254
+msgid "Comment"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:306
+msgid "COMMENTS"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:230
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:247
+msgid "Comments"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:195
+msgid "Create Product"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:116
+msgid "Created Date "
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:171
+#: templates/front/customer/class-womprfq-customer-main-quote.php:143
+#: templates/front/customer/class-womprfq-customer-main-quote.php:203
+#: templates/front/customer/class-womprfq-customer-template.php:73
+#: templates/front/customer/class-womprfq-customer-template.php:136
+msgid "Created On"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-table-template.php:53
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:278
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:137
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:356
+msgid "Customer"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:136
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:142
+msgid "Date Added"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-table-template.php:52
+msgid "Date Created"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:147
+msgid "Default Label"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:190
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:363
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:200
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:377
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:169
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:263
+msgid "Delete"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:384
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:398
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:284
+msgid "Deleted Successfully."
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-settings-template.php:55
+#: templates/admin/class-womprfq-admin-settings-template.php:80
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:292
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:294
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:200
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:200
+msgid "Disable"
+msgstr ""
+
+#: includes/front/class-womprfq-script-handler.php:53
+#: includes/front/class-womprfq-script-handler.php:79
+#: includes/front/class-womprfq-script-handler.php:107
+#: includes/admin/class-womprfq-script-handler.php:51
+msgid "Done"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-table-template.php:68
+msgid "Edit Quotation"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:166
+msgid "Edit Seller Quotation"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-settings-template.php:57
+#: templates/admin/class-womprfq-admin-settings-template.php:88
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:290
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:292
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:199
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:198
+msgid "Enable"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:103
+#: templates/front/customer/class-womprfq-customer-add-new-product-quote.php:71
+msgid "Enter Description"
+msgstr ""
+
+#: helper/class-womprfq-quote-handler.php:463
+#: helper/class-womprfq-quote-handler.php:701
+msgid "Enter Details to change"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-settings-template.php:67
+msgid "Enter minimum Quantity of quotation."
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:97
+#: templates/front/customer/class-womprfq-customer-add-new-product-quote.php:62
+msgid "Enter Quantity"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-template.php:231
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:132
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:154
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:258
+msgid "Enter text to add comment to quote."
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-add-new-product-quote.php:76
+msgid "Enter text to add desc to quote."
+msgstr ""
+
+#. %s Customer email
+#: woocommerce/templates/emails/wo-mp-rfq-notification.php:26
+#: woocommerce/templates/emails/plain/wo-mp-rfq-notification.php:24
+#, php-format
+msgid "Hi %s,"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://webkul.com"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-settings-template.php:111
+msgid "Items Per Page"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:150
+msgid "LOGIN TO REQUEST FOR QUOTATION"
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-main-quote.php:55
+msgid "Main Quotation Details"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:157
+msgid "MAIN QUOTATION INFORMATION"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:72
+msgid "Main Quotation Lists"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:214
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:185
+msgid "Manage"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:186
+msgid "Manage RFQ"
+msgstr ""
+
+#: functions.php:76
+msgid "Marketplace"
+msgstr ""
+
+#. Name of the plugin
+msgid "Marketplace Request for Quotation"
+msgstr ""
+
+#: includes/admin/class-womprfq-function-handler.php:47
+#: includes/admin/class-womprfq-function-handler.php:48
+msgid "Marketplace RFQ"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:248
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:265
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:326
+msgid "Message : "
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-settings-template.php:63
+msgid "Minimum Quantity for “Request For Quote”"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:503
+#: includes/common/class-womprfq-function-handler.php:99
+msgid "Minimum Quantity required for quote is "
+msgstr ""
+
+#: helper/class-womprfq-quote-handler.php:528
+#: helper/class-womprfq-quote-handler.php:537
+#: helper/class-womprfq-quote-handler.php:538
+#: helper/class-womprfq-quote-handler.php:587
+#: helper/class-womprfq-quote-handler.php:588
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:272
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:273
+msgid "N\\A"
+msgstr ""
+
+#: helper/class-womprfq-quote-handler.php:148
+#: helper/class-womprfq-quote-handler.php:165
+#: helper/class-womprfq-quote-handler.php:220
+msgid "New Request For Quotation"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-table-template.php:121
+#: templates/front/customer/class-womprfq-customer-template.php:169
+msgid "Next"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:371
+msgid "No comment present yet!"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:292
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:311
+msgid "No Comment Yet."
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-table-template.php:101
+#: templates/front/customer/class-womprfq-customer-main-quote.php:215
+#: templates/front/customer/class-womprfq-customer-template.php:148
+msgid "No Data Found"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:185
+msgid "Not required"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:208
+msgid "Notify Sellers"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:120
+msgid "Number"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:118
+#: templates/front/customer/class-womprfq-customer-add-new-product-quote.php:88
+msgid "Only jpg|png|jpeg files are allowed."
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-template.php:32
+#: templates/front/seller/class-womprfq-seller-template.php:83
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:31
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:35
+#: templates/front/customer/class-womprfq-customer-main-quote.php:75
+#: templates/front/customer/class-womprfq-customer-main-quote.php:128
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:39
+msgid "Open"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-template.php:33
+#: templates/front/seller/class-womprfq-seller-template.php:84
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:32
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:37
+#: templates/front/customer/class-womprfq-customer-main-quote.php:76
+#: templates/front/customer/class-womprfq-customer-main-quote.php:129
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:40
+msgid "Pending"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:274
+msgid "Please enter details and than submit."
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:442
+#: includes/front/class-womprfq-function-handler.php:506
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:135
+msgid "Please Enter Valid Details."
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:100
+msgid "Please enter values in all required fields."
+msgstr ""
+
+#: helper/class-womprfq-quote-handler.php:194
+msgid "Please find the following details :"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-table-template.php:114
+#: templates/front/customer/class-womprfq-customer-template.php:163
+msgid "Previous"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:118
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:160
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:214
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:101
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:205
+msgid "Price/Product"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-template.php:217
+msgid "Price\\Product"
+msgstr ""
+
+#: templates/front/class-womprfq-front-templates.php:69
+msgid "Product"
+msgstr ""
+
+#: templates/front/class-womprfq-front-templates.php:80
+msgid "Product Description"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:93
+#: templates/front/seller/class-womprfq-seller-table-template.php:50
+#: templates/front/customer/class-womprfq-customer-add-new-product-quote.php:53
+#: templates/front/customer/class-womprfq-customer-main-quote.php:200
+#: templates/front/customer/class-womprfq-customer-template.php:71
+#: templates/front/customer/class-womprfq-customer-template.php:130
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:134
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:139
+msgid "Product Name"
+msgstr ""
+
+#: templates/front/class-womprfq-front-templates.php:73
+#: templates/front/seller/class-womprfq-seller-template.php:207
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:108
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:152
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:206
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:91
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:229
+msgid "Quantity"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:32
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:37
+msgid "Quotation"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:499
+#: includes/common/class-womprfq-function-handler.php:96
+msgid "Quotation Added Successfully"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:423
+msgid "Quotation Added successfully."
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:60
+msgid "Quotation Details"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:305
+msgid "Quotation has been accepted by Customer"
+msgstr ""
+
+#: includes/common/class-womprfq-function-handler.php:408
+msgid "Quotation has been approved by Seller"
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:216
+msgid "Quotation have been accepted and fulfilled."
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:162
+msgid "Quotation ID"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-table-template.php:49
+#: templates/front/customer/class-womprfq-customer-main-quote.php:141
+#: templates/front/customer/class-womprfq-customer-main-quote.php:196
+#: templates/front/customer/class-womprfq-customer-main-quote.php:214
+#: templates/front/customer/class-womprfq-customer-template.php:70
+#: templates/front/customer/class-womprfq-customer-template.php:127
+#: templates/front/customer/class-womprfq-customer-template.php:147
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:133
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:138
+msgid "Quotation Id"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:168
+msgid "Quotation Product Name"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-template.php:66
+msgid "Quotation Request"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:110
+msgid "Quotation status has been updated by Admin"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:309
+msgid "Quotation status has been updated by Customer"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:404
+msgid "Quotation status has been updated by Seller"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:165
+msgid "Quotation Total Quantity"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:321
+#: includes/front/class-womprfq-function-handler.php:416
+#: includes/common/class-womprfq-function-handler.php:420
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:122
+msgid "Quotation Updated"
+msgstr ""
+
+#: helper/class-womprfq-quote-handler.php:812
+msgid "Quotation Updated Successfully"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:326
+#: includes/front/class-womprfq-function-handler.php:427
+msgid "Quotation Updated successfully."
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:162
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:33
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:38
+msgid "Quotations"
+msgstr ""
+
+#: includes/admin/class-womprfq-function-handler.php:61
+#: includes/admin/class-womprfq-function-handler.php:62
+#: templates/front/customer/class-womprfq-customer-main-quote.php:137
+msgid "Quotations List"
+msgstr ""
+
+#: templates/front/class-womprfq-front-templates.php:65
+msgid "Quotatoin ID"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:285
+msgid "Quote Status"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-table-template.php:51
+msgid "Quoted Quantity"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:88
+msgid "REQUEST FOR QUOTE"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:131
+#: templates/front/customer/class-womprfq-customer-add-new-product-quote.php:131
+msgid "Request for Quote"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:48
+#: includes/front/class-womprfq-function-handler.php:72
+#: includes/common/class-womprfq-function-handler.php:49
+msgid "Request for quote"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-settings-template.php:71
+msgid "Request For Quote Approval Required"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-settings-template.php:35
+msgid "Request For Quote Settings"
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-template.php:72
+#: templates/front/customer/class-womprfq-customer-template.php:133
+msgid "Requested Quantity"
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-template.php:66
+msgid "Requested Quotations List"
+msgstr ""
+
+#: helper/class-womprfq-quote-handler.php:195
+msgid "Requested Quote Topic : "
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:186
+msgid "Required"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:180
+msgid "Required Type"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-template.php:35
+#: templates/front/seller/class-womprfq-seller-template.php:86
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:34
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:38
+#: templates/front/customer/class-womprfq-customer-main-quote.php:78
+#: templates/front/customer/class-womprfq-customer-main-quote.php:131
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:42
+msgid "Resolved"
+msgstr ""
+
+#: includes/class-wc-email-mp-rfq-notification.php:21
+#: includes/class-wc-email-mp-rfq-notification.php:23
+msgid "RFQ Notification"
+msgstr ""
+
+#: includes/class-wc-email-mp-rfq-notification.php:22
+msgid "RFQ Notification email are sent to respective customers and sellers"
+msgstr ""
+
+#: templates/front/class-womprfq-front-templates.php:86
+msgid "Sample Images"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:210
+msgid "Save"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:123
+msgid "Search by Attribute Id"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:78
+msgid "Search by Quote Id"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:60
+msgid "Search by Seller Name"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:163
+msgid "Select"
+msgstr ""
+
+#: includes/front/class-womprfq-script-handler.php:52
+#: includes/front/class-womprfq-script-handler.php:78
+#: includes/front/class-womprfq-script-handler.php:106
+#: includes/admin/class-womprfq-script-handler.php:50
+msgid "Select Image"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-settings-template.php:51
+msgid "Select Status"
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:295
+#: templates/front/customer/class-womprfq-customer-main-quote.php:142
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:354
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:141
+msgid "Seller"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:196
+msgid "SELLER QUOTATION"
+msgstr ""
+
+#: templates/admin/class-womprfq-admin-menu-template.php:42
+msgid "Seller Quotation Lists"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:107
+msgid "Seller Quotation Updated successfully."
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:84
+msgid "Seller Quote Details"
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:213
+msgid "Seller Quoted Price."
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:237
+msgid "Seller Quoted Quantity."
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:175
+msgid "Send"
+msgstr ""
+
+#: includes/admin/class-womprfq-function-handler.php:85
+#: includes/admin/class-womprfq-function-handler.php:86
+msgid "Settings"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-attribute-list.php:115
+msgid "Show in Quote Form"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:97
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:111
+msgid "Status"
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:116
+msgid "Text"
+msgstr ""
+
+#: includes/class-wc-email-mp-rfq-notification.php:27
+msgid "Thanks for choosing Marketplace RFQ."
+msgstr ""
+
+#: inc/autoload.php:57
+#, php-format
+msgid "The file attempting to be loaded at %s does not exist."
+msgstr ""
+
+#: functions.php:74
+#, php-format
+msgid ""
+"The Marketplace RFQ plugin for WooCommerce requires %s and %s to be "
+"installed and active."
+msgstr ""
+
+#: includes/front/class-womprfq-script-handler.php:108
+msgid "There are some required fields!"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"This Plugin allow sellers to make quotation for customer requested "
+"Quotations."
+msgstr ""
+
+#: templates/admin/menu/quote/class-womprfq-main-quotation-list.php:135
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:140
+msgid "Total Quote Quantity"
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:572
+msgid "Unable to Add Product to cart"
+msgstr ""
+
+#: helper/class-womprfq-attribute-handler.php:61
+msgid "Unable to update the Attribute."
+msgstr ""
+
+#: templates/admin/menu/attribute/class-womprfq-manage-attribute.php:43
+msgid "Update Attribute"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:185
+msgid "Update Product"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:143
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-edit.php:275
+msgid "Update Quotation"
+msgstr ""
+
+#: helper/class-womprfq-attribute-handler.php:79
+msgid "Updated Successfully"
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-main-quote.php:207
+#: templates/admin/menu/quote/class-womprfq-seller-quotation-list.php:216
+msgid "View"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-seller-table-template.php:66
+#: templates/front/customer/class-womprfq-customer-template.php:140
+msgid "View Quotation"
+msgstr ""
+
+#: woocommerce/templates/emails/wo-mp-rfq-notification.php:40
+#: woocommerce/templates/emails/plain/wo-mp-rfq-notification.php:32
+msgid "We look forward to seeing you soon."
+msgstr ""
+
+#. Author of the plugin
+msgid "Webkul"
+msgstr ""
+
+#: functions.php:75
+msgid "WooCommerce"
+msgstr ""
+
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:276
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:293
+msgid "You"
+msgstr ""
+
+#: templates/front/customer/class-womprfq-customer-seller-quote-edit.php:218
+msgid "You accepted this Quotation."
+msgstr ""
+
+#: includes/front/class-womprfq-function-handler.php:529
+msgid "You can add exact quantity of product."
+msgstr ""
+
+#: templates/front/seller/class-womprfq-edit-seller-quote.php:55
+msgid "Your Quoted Info"
+msgstr ""
