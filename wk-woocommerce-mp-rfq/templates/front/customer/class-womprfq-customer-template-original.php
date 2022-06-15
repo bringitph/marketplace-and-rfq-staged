@@ -64,8 +64,7 @@ if ( ! class_exists( 'Womprfq_Customer_Template' ) ) {
 				<a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) . 'add-quote/' ); ?>" class="button add-new-quotation"><?php esc_html_e( 'Add New Product RFQ', 'wk-mp-rfq' ); ?></a>
 				<?php
 				$quote_columns = array(
-					// Jesse edit: On Buyers side, change Quotation ID header to Request ID when viewing list of all RFQs
-                    'quote-id'       => esc_html__( 'Request', 'wk-mp-rfq' ),
+					'quote-id'       => esc_html__( 'Quotation Id', 'wk-mp-rfq' ),
 					'quote-product'  => esc_html__( 'Product Name', 'wk-mp-rfq' ),
 					'quote-quantity' => esc_html__( 'Requested Quantity', 'wk-mp-rfq' ),
 					'created-on'     => esc_html__( 'Created On', 'wk-mp-rfq' ),
