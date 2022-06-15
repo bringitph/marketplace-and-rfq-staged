@@ -53,8 +53,6 @@ if ( ! class_exists( 'Womprfq_Customer_Main_Quote' ) ) {
 							<?php echo ucfirst( esc_html__( 'Main Quotation Details', 'wk-mp-rfq' ) ); ?>
 						</h2>
 					</div>
-					<!--Jesse edit: Add link about changing shopping request above Buyer's Main Quote table-->
-                    Note: Changes to Shopping Requests
 					<div id="main_container" class="wk_transaction woocommerce-MyAccount-content wk-mp-rfq" style="display: contents;">
 					<?php
 					$temp_obj->womprfq_get_main_quote_template( $main_quote_info );
