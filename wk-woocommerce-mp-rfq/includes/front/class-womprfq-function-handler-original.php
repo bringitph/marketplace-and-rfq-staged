@@ -240,7 +240,6 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 		}
 
 		public function wkmprfq_after_customer_submit_form_handle( $postdta, $sid ) {
-			global $wpdb;
 			if ( $postdta && $sid ) {
 				if ( isset( $postdta['update-customer-quotation-submit'] ) ) {
 					if ( ! empty( $postdta['wc-customer-quote-nonce'] ) && wp_verify_nonce( wp_unslash( $postdta['wc-customer-quote-nonce'] ), 'wc-customer-quote-nonce-action' ) ) {
@@ -271,11 +270,6 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 							);
 
 							if ( $q_status ) {
-								$main_quot_id = $sel_q_data->main_quotation_id;
-								$seller_id = $sel_q_data->seller_id;
-
-								$this->helper->womprfq_update_main_quotation_status( $main_quot_id, 2 );
-								$sup_q = 
 								$info = array(
 									'id'     => $sid,
 									'status' => 3,
