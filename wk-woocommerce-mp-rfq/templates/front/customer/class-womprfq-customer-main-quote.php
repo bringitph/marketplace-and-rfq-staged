@@ -137,7 +137,8 @@ if ( ! class_exists( 'Womprfq_Customer_Main_Quote' ) ) {
 				</h2>
 				<?php
 				$quote_columns = array(
-					'quote-id'      => esc_html__( 'Quotation Id', 'wk-mp-rfq' ),
+					// Jesse edit: On Buyers side, change Quotation ID header to Offer ID when viewing list of offers in tabs
+					'quote-id'      => esc_html__( 'Offer', 'wk-mp-rfq' ),
 					'seller-id'     => esc_html__( 'Seller', 'wk-mp-rfq' ),
 					'created-on'    => esc_html__( 'Created On', 'wk-mp-rfq' ),
 					'quote-actions' => esc_html__( 'Actions', 'wk-mp-rfq' ),
