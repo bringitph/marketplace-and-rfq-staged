@@ -42,8 +42,6 @@ if ( ! class_exists( 'Womprfq_Customer_Add_New_Product_Quote' ) ) {
 					<?php echo ucfirst( esc_html__( 'Add New Product RFQ', 'wk-mp-rfq' ) ); ?>
 				</h2>
 			</div>
-			<!-- Jesse: Add help links under Add New Product RFQ -->
-            Request Reminders
 			<div id="main_container" class="wk_transaction woocommerce-MyAccount-content wk-mp-rfq" style="display: contents;">
 				<form method="POST" id="wpmp-rfq-new-quote-form" class="wpmp-rfq-new-quote-form" action="">
 					<table class="form-table wc_status_table widefat">
