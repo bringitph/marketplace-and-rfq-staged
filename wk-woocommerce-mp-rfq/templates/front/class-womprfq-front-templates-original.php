@@ -58,9 +58,8 @@ if ( ! class_exists( 'Womprfq_Front_Templates' ) ) {
 							}
 							$sh_data = array(
 								'main_quotation_id' => array(
-									// Jesse edit: Change header of Quotation ID in Main RFQ Details table visible to Buyer and Seller
-									'title' => esc_html__( 'Request', 'wk-mp-rfq' ),
-									'value' => '' . intval( $data->id ),
+									'title' => esc_html__( 'Quotatoin ID', 'wk-mp-rfq' ),
+									'value' => '#' . intval( $data->id ),
 								),
 								'product'           => array(
 									'title' => esc_html__( 'Product', 'wk-mp-rfq' ),
