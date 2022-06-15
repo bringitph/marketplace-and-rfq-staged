@@ -139,8 +139,6 @@ if ( ! class_exists( 'Womprfq_Seller_Template' ) ) {
 							<?php echo ucfirst( esc_html__( 'Add Quotation', 'wk-mp-rfq' ) ); ?>
 						</h2>
 					</div>
-					<!-- Jesse: PS: Add help links under Make an Offer -->
-                    Offer Reminders
 					<div id="main_container" class="wk_transaction woocommerce-MyAccount-content" style="display: contents;">
 					<?php
 					if ( intval( $wp_query->query_vars['info'] ) ) {
