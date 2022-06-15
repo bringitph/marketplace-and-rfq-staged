@@ -117,11 +117,6 @@ if ( ! class_exists( 'Womprfq_Manage_Attribute' ) ) {
 						'type'  => 'number',
 						'title' => esc_html__( 'Number', 'wk-mp-rfq' ),
 					),
-					/* Jesse edit: Add attribute type Date */
-					array(
-                        'type'  => 'date',
-                        'title' => esc_html__( 'Date', 'wk-mp-rfq' ),
-                    ),
 				);
 				if ( $this->attrid != 0 ) {
 					$attr_dta = $att_obj->womprfq_get_attribute_info( $this->attrid );
