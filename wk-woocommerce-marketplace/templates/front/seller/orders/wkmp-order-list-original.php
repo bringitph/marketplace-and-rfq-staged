@@ -37,8 +37,7 @@ defined( 'ABSPATH' ) || exit;
 				<?php if ( $orders ) { ?>
 					<?php foreach ( $orders as $key => $seller_order ) { ?>
 						<tr>
-							<!--Jesse edit: Convert Order ID to hyperlink and remove hash-->
-							<td><a href="<?php echo esc_html( $seller_order['order_id'] ); ?>"><?php echo '' . esc_html( $seller_order['order_id'] ); ?></a></td>
+							<td><?php echo '#' . esc_html( $seller_order['order_id'] ); ?></td>
 							<td><?php echo esc_html( ucfirst( $seller_order['order_status'] ) ); ?></td>
 							<td><?php echo esc_html( $seller_order['order_date'] ); ?></td>
 							<td><?php echo wp_kses_post( $seller_order['order_total'] ); ?></td>
