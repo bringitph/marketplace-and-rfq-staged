@@ -251,8 +251,9 @@ if ( ! class_exists( 'Womprfq_Seller_Template' ) ) {
 											</span>
 										</td>
 									</tr>
-									<tr colspan="2" valign="top">
-										<td class="forminp">
+									<!-- Jesse edit: Add Quotation submit button overflow -->
+									<tr valign="top">
+										<td colspan=2 class="forminp">
 											<?php wp_nonce_field( 'wc-seller-quote-nonce-action', 'wc-seller-quote-nonce' ); ?>
 											<input type="submit" name="update-seller-new-quotation-submit" value="<?php esc_html_e( 'Add Quotation', 'wk-mp-rfq' ); ?>" class="button button-primary" />
 										</td>
