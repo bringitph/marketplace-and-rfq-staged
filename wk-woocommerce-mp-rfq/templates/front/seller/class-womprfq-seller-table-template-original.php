@@ -46,8 +46,7 @@ if ( ! class_exists( 'Womprfq_Seller_Table_Template' ) ) {
 			<table id="manage-quote" class="transactionhistory">
 				<thead>
 					<tr>
-						<!--Jesse edit: On Seller side, change Quotation ID header to Request ID-->
-                        <th width="10%"><?php esc_html_e( 'Request', 'wk-mp-rfq' ); ?></th>
+						<th width="10%"><?php esc_html_e( 'Quotation Id', 'wk-mp-rfq' ); ?></th>
 						<th width="25%"><?php esc_html_e( 'Product Name', 'wk-mp-rfq' ); ?></th>
 						<th width="15%"><?php esc_html_e( 'Quoted Quantity', 'wk-mp-rfq' ); ?></th>
 						<th width="20%"><?php esc_html_e( 'Date Created', 'wk-mp-rfq' ); ?></th>
