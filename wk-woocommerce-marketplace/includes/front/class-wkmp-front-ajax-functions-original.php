@@ -113,12 +113,11 @@ if ( ! class_exists( 'WKMP_Front_Ajax_Functions' ) ) {
 				if ( false !== $key ) {
 					unset( $sellers[ $key ] );
 					$json['success'] = 'removed';
-					// Jesse edit: Change Ajax message when adding seller to favourites from product page
-					$json['message'] = esc_html__( 'Removed from your Favorites', 'wk-marketplace' );
+					$json['message'] = esc_html__( 'Seller removed from your favourite seller list.', 'wk-marketplace' );
 				} else {
 					$sellers[]       = $seller_id;
 					$json['success'] = 'added';
-					$json['message'] = esc_html__( 'Added to your Favorites', 'wk-marketplace' );
+					$json['message'] = esc_html__( 'Seller added to your favourite seller list.', 'wk-marketplace' );
 				}
 
 				delete_user_meta( $customer_id, 'favourite_seller' );
