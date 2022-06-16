@@ -50,40 +50,40 @@ if ( ! class_exists( 'WKMP_Front_Ajax_Functions' ) ) {
 					if ( preg_match( '/[\'^£$%&*()}{@#~?><>,|=_+¬]/', $slug ) ) {
 						$response = array(
 							'error'   => true,
-							'message' => esc_html__( 'You can not use special characters in shop url except HYPHEN(-).', 'wk-marketplace' ),
+							'message' => esc_html__( 'Symbols are not allowed', 'wk-marketplace' ),
 						);
 					} elseif ( ctype_space( $slug ) ) {
 
 						$response = array(
 							'error'   => true,
-							'message' => esc_html__( 'White space(s) aren\'t allowed in shop url.', 'wk-marketplace' ),
+							'message' => esc_html__( 'Spaces are not allowed', 'wk-marketplace' ),
 						);
 					} elseif ( str_contains( $slug, ' ' ) ) {
 						$response = array(
 							'error'   => true,
-							'message' => __( "White space(s) aren't allowed in shop url.", 'wk-marketplace' ),
+							'message' => __( "Spaces are not allowed", 'wk-marketplace' ),
 						);
 					} elseif ( $user ) {
 						$response = array(
 							'error'   => true,
-							'message' => esc_html__( 'This shop URl already EXISTS, please try different shop url.', 'wk-marketplace' ),
+							'message' => esc_html__( 'Already taken, please try again', 'wk-marketplace' ),
 						);
 					} else {
 						$response = array(
 							'error'   => false,
-							'message' => esc_html__( 'This shop URl is available, kindly proceed.', 'wk-marketplace' ),
+							'message' => esc_html__( '', 'wk-marketplace' ),
 						);
 					}
 				} else {
 					$response = array(
 						'error'   => true,
-						'message' => esc_html__( 'Shop url not found!', 'wk-marketplace' ),
+						'message' => esc_html__( 'Profile shortcut not found', 'wk-marketplace' ),
 					);
 				}
 			} else {
 				$response = array(
 					'error'   => true,
-					'message' => esc_html__( 'Security check failed!', 'wk-marketplace' ),
+					'message' => esc_html__( 'Security check failed', 'wk-marketplace' ),
 				);
 			}
 
@@ -97,7 +97,7 @@ if ( ! class_exists( 'WKMP_Front_Ajax_Functions' ) ) {
 			$json = array();
 			if ( ! check_ajax_referer( 'wkmp-front-nonce', 'wkmp_nonce', false ) ) {
 				$json['error']   = true;
-				$json['message'] = esc_html__( 'Security check failed!', 'wk-marketplace' );
+				$json['message'] = esc_html__( 'Security check failed', 'wk-marketplace' );
 				wp_send_json( $json );
 			}
 
@@ -134,7 +134,7 @@ if ( ! class_exists( 'WKMP_Front_Ajax_Functions' ) ) {
 			$json = array();
 			if ( ! check_ajax_referer( 'wkmp-front-nonce', 'wkmp_nonce', false ) && ! check_ajax_referer( 'wkmp-admin-nonce', 'wkmp_nonce', false ) ) {
 				$json['error']   = true;
-				$json['message'] = esc_html__( 'Security check failed!', 'wk-marketplace' );
+				$json['message'] = esc_html__( 'Security check failed', 'wk-marketplace' );
 				wp_send_json( $json );
 			}
 
