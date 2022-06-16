@@ -125,7 +125,7 @@ if ( ! class_exists( 'WKMP_Seller_Profile_Form' ) ) {
 									<?php do_action( 'marketplace_payment_gateway' ); ?>
 								</div>
 
-								<div class="hidden">
+								<div class="form-group">
 									<label for="billing-country"><?php esc_html_e( 'Country', 'wk-marketplace' ); ?></label>
 									<select name="wkmp_shop_country" id="billing-country" class="form-control">
 										<option value=""><?php esc_html_e( 'Select Country', 'wk-marketplace' ); ?></option>
@@ -143,22 +143,22 @@ if ( ! class_exists( 'WKMP_Seller_Profile_Form' ) ) {
 									</select>
 								</div>
 
-								<div class="hidden">
+								<div class="form-group">
 									<label for="address-1"><?php esc_html_e( 'Address Line 1', 'wk-marketplace' ); ?></label>
 									<input class="form-control" type="text" name="wkmp_shop_address_1" id="address-1" value="<?php echo esc_attr( $seller_info['wkmp_shop_address_1'] ); ?>">
 								</div>
 
-								<div class="hidden">
+								<div class="form-group">
 									<label for="address-2"><?php esc_html_e( 'Address Line 2', 'wk-marketplace' ); ?></label>
 									<input class="form-control" type="text" name="wkmp_shop_address_2" id="address-2" value="<?php echo esc_attr( $seller_info['wkmp_shop_address_2'] ); ?>">
 								</div>
 
-								<div class="hidden">
+								<div class="form-group">
 									<label for="billing-city"><?php esc_html_e( 'City', 'wk-marketplace' ); ?></label>
 									<input class="form-control" type="text" name="wkmp_shop_city" id="billing-city" value="<?php echo esc_attr( $seller_info['wkmp_shop_city'] ); ?>">
 								</div>
 
-								<div class="hidden">
+								<div class="form-group">
 									<label for="billing-state"><?php esc_html_e( 'State', 'wk-marketplace' ); ?></label>
 									<?php
 									$get_states = array();
@@ -179,7 +179,7 @@ if ( ! class_exists( 'WKMP_Seller_Profile_Form' ) ) {
 									<?php } ?>
 								</div>
 
-								<div class="hidden">
+								<div class="form-group">
 									<label for="billing-postal-code"><?php esc_html_e( 'Postal Code', 'wk-marketplace' ); ?></label>
 									<input class="form-control" type="text" name="wkmp_shop_postcode" id="billing-postal-code" value="<?php echo esc_attr( $seller_info['wkmp_shop_postcode'] ); ?>">
 									<div class="text-danger"><?php echo isset( $errors['wkmp_shop_postcode'] ) ? esc_html( $errors['wkmp_shop_postcode'] ) : ''; ?></div>
@@ -231,7 +231,7 @@ if ( ! class_exists( 'WKMP_Seller_Profile_Form' ) ) {
 
 								</div>
 
-								<div class="hidden">
+								<div class="form-group">
 									<label><b><?php esc_html_e( 'Banner Image', 'wk-marketplace' ); ?></b></label>
 									<p>
 										<input type="checkbox" id="wk-seller-banner-status" name="wkmp_display_banner" value="yes" <?php echo ( 'yes' === $seller_info['wkmp_display_banner'] ) ? 'checked' : ''; ?>><label for="wk-seller-banner-status"><?php esc_html_e( 'Show banner on seller page', 'wk-marketplace' ); ?> </label>
