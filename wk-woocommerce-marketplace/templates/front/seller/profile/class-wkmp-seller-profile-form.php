@@ -184,7 +184,7 @@ if ( ! class_exists( 'WKMP_Seller_Profile_Form' ) ) {
 									<input class="form-control" type="text" name="wkmp_shop_postcode" id="billing-postal-code" value="<?php echo esc_attr( $seller_info['wkmp_shop_postcode'] ); ?>">
 									<div class="text-danger"><?php echo isset( $errors['wkmp_shop_postcode'] ) ? esc_html( $errors['wkmp_shop_postcode'] ) : ''; ?></div>
 								</div>
-
+	
 								<div class="form-group">
 									<label for="about-shop"><?php esc_html_e( 'About Shop', 'wk-marketplace' ); ?></label>
 									<!-- Jesse: Add max character for About text -->
@@ -223,10 +223,13 @@ if ( ! class_exists( 'WKMP_Seller_Profile_Form' ) ) {
 											<input type="hidden" id="thumbnail_id_company_logo" name="wkmp_logo_id" value="<?php echo esc_attr( $seller_info['wkmp_logo_id'] ); ?>"/>
 											<input type="file" name="wkmp_logo_file" class="wkmp_hide" id="seller_shop_logo_file"/>
 										</div>
+										<br/> <!--Jesse edit: Add breakline between shop logo and Upload button-->
 
 										<div class="wkmp-button" style="font-size:13px;margin-top:2px;">
 											<button type="button" class="button" id="wkmp-upload-shop-logo"><?php esc_html_e( 'Upload', 'wk-marketplace' ); ?></button>
 											<button type="button" class="button wkmp-remove-shop-logo" style="color:#fff;background-color:#da2020"> <?php esc_html_e( 'Remove', 'wk-marketplace' ); ?></button>
+										<!--Jesse edit: Add reminder to Save after uploading photo -->
+                                		<br/><br/><font size="-1" style="color:#8f8d8d">Made changes? Don't forget to hit the SAVE button.</font>
 										</div>
 									</div>
 
