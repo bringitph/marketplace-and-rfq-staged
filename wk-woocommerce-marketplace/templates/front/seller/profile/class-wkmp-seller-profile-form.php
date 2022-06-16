@@ -187,7 +187,8 @@ if ( ! class_exists( 'WKMP_Seller_Profile_Form' ) ) {
 
 								<div class="form-group">
 									<label for="about-shop"><?php esc_html_e( 'About Shop', 'wk-marketplace' ); ?></label>
-									<textarea placeholder="<?php esc_attr_e( 'Details about your shop.', 'wk-marketplace' ); ?>" rows="4" id="about-shop" name="wkmp_about_shop"><?php echo  $seller_info['wkmp_about_shop']; ?></textarea>
+									<!-- Jesse: Add max character for About text -->
+									<textarea maxlength="200" placeholder="<?php esc_attr_e( 'Details about your shop.', 'wk-marketplace' ); ?>" rows="4" id="about-shop" name="wkmp_about_shop"><?php echo  $seller_info['wkmp_about_shop']; ?></textarea>
 								</div>
 
 							</div><!-- wkmp-shop-tab end here -->
