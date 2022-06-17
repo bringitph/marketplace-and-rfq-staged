@@ -97,7 +97,21 @@ if ( ! class_exists( 'Womprfq_Customer_Template' ) ) {
 				<?php
 
 				if ( ! empty( $customer_quotes ) ) {
+					
+					// Jesse edit: Add Total Quotes received on buyers RFQ list
+					$user = wp_get_current_user();
+					$current_login_user_id = ($user->data->ID);
+					$roles = ( array ) $user->roles;
+					/*************#Changes End***************/
+					
 					foreach ( $customer_quotes as $customer_quote ) :
+					
+						// Jesse edit: Add Total Quotes received on buyers RFQ list
+						$mydata  = $this->helper->womprfq_get_main_quotation_by_id( $customer_quote->id );
+						//print_r($data);
+						$main_creator_ID =  $mydata->customer_id;
+						/*************#Changes End***************/
+						
 						if ( $customer_quote->product_id == 0 ) {
 							$quote_d     = $this->helper->womprfq_get_quote_meta_info( $customer_quote->id );
 							$quo_product = '';
@@ -131,6 +145,23 @@ if ( ! class_exists( 'Womprfq_Customer_Template' ) ) {
 						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-quote-quantity" data-title="<?php esc_attr_e( 'Requested Quantity', 'wk-mp-rfq' ); ?>">
 							<?php echo esc_html( $data['quantity'] ); ?>
 						</td>
+						
+						<?php // Jesse edit: Add Total Quotes received on buyers RFQ list 
+						if($roles[0]=='customer' || ($current_login_user_id == $main_creator_ID) ){
+							global $wpdb;							 
+							$query1c = $wpdb->prepare( "SELECT count(*) as count FROM ".$wpdb->prefix."womprfq_seller_quotation WHERE main_quotation_id = ".$data['id'] );						
+							$resc    = $wpdb->get_results( $query1c );
+						?>
+						<td class="woocommerce-orders-table__cell "  >
+							<?php echo $resc[0]->count; ?>
+						</td>
+						<?php }else{ ?>
+								<td class="woocommerce-orders-table__cell "  >
+								NA
+							</td>
+						<?php } 
+						/*************** Changes End  ***************/ ?>						
+						
 						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-created-on" data-title="<?php esc_attr_e( 'Created On', 'wk-mp-rfq' ); ?>">
 							<?php echo esc_html( $data['date'] ); ?>
 						</td>
