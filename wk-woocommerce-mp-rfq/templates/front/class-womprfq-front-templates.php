@@ -139,6 +139,34 @@ if ( ! class_exists( 'Womprfq_Front_Templates' ) ) {
 									<?php
 								}
 							}
+							// Jesse edit: Add Total Quotes received on Main quotation table
+							$user = wp_get_current_user();
+							$current_login_user_id = ($user->data->ID);
+ 							$roles = ( array ) $user->roles;
+							 
+							$main_creator_ID =  $data->customer_id;
+							//condition if its customer or main quotation creator	 
+							if($roles[0]=='customer' || ($current_login_user_id == $main_creator_ID) ){
+								global $wpdb;							 
+								$query1c = $wpdb->prepare( "SELECT count(*) as count FROM ".$wpdb->prefix."womprfq_seller_quotation WHERE main_quotation_id = ".$data->id );						
+								$resc    = $wpdb->get_results( $query1c ); 
+							
+							
+							?>
+							
+							 <tr class="order_item alt-table-row">
+								<td class="product-name toptable">
+									<strong>
+										Offers received 
+									</strong>
+								</td>
+								<td class="product-total toptable">
+								 <?php echo $resc[0]->count; ?>
+								</td>
+							</tr>
+							<?php
+							}
+							 /*************Total quotation END***************/
 							?>
 						</tbody>
 					</table>
