@@ -123,23 +123,6 @@ if ( ! class_exists( 'Womprfq_Customer_Seller_Quote_Edit' ) ) {
 									<?php echo esc_html( $this->status_title[ $seller_data->status ] ); ?>
 								</td>
 							</tr>
-							<?php // Jesse edit: Add  name of personal shopper on quote display
-							$seller_details = get_userdata($seller_data->seller_id);
-							$seller_shopname= get_usermeta( $seller_data->seller_id,'shop_name' );
-							$seller_shopaddr= get_usermeta( $seller_data->seller_id,'shop_address' );
-							 ?>
-							<tr class="order_item alt-table-row">
-								<td colspan="2" class="product-name toptable">
-									<strong>
-									Personal shopper
-									</strong>
-								</td>
-								<td colspan="2" class="product-total toptable">
-									<a href="<?php echo site_url(); ?>/seller/personal-shopper/<?php  echo $seller_shopaddr; ?>"><?php echo $seller_shopname; ?></a>
-								</td>
-							</tr>
-							<?php /**************#2 Changes End****************/ ?>
-							
 						</tbody>
 					</table>
 				</div>
