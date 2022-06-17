@@ -74,7 +74,9 @@ if ( ! class_exists( 'Womprfq_Seller_Table_Template' ) ) {
 						?>
 						<tr>
 							<td>
-								<?php echo esc_html( '#' . intval( $data['id'] ) ); ?>
+								<!-- Jesse edit: Make Request ID hyperlinked in Sellers RFQ list to offer to --> 
+								<a class="edit-slots" href="<?php echo esc_url( $url_red . intval( $data['id'] ) ); ?>">
+                                <?php echo esc_html( '' . intval( $data['id'] ) ); ?></a>
 							</td>
 							<td>
 								<?php echo esc_html( $data['product_info']['name'] ); ?>
