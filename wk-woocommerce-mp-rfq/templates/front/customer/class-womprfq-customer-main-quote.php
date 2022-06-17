@@ -195,7 +195,9 @@ if ( ! class_exists( 'Womprfq_Customer_Main_Quote' ) ) {
 					<tr class="woocommerce-orders-table__row woocommerce-orders-table__row--status-processing order">
 						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-quote-id" data-title="<?php esc_attr_e( 'Quotation Id', 'wk-mp-rfq' ); ?>">
 							<span class="<?php echo esc_attr( $ac_class ); ?>"></span>
-							<?php echo esc_html( '#' . intval( $data['id'] ) ); ?>
+							<!-- Jesse edit: Make Request ID hyperlinked in Buyers individual quotes list under a request -->
+							<a href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) . 'seller-quote/' . intval( $data['id'] ) ); ?>">
+							<?php echo esc_html( '' . intval( $data['id'] ) ); ?></a>
 						</td>
 						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-quote-product" data-title="<?php esc_attr_e( 'Product Name', 'wk-mp-rfq' ); ?>">
 							<?php echo esc_html( ( $data['seller'] ) ); ?>
