@@ -68,6 +68,9 @@ if ( ! class_exists( 'Womprfq_Customer_Template' ) ) {
                     'quote-id'       => esc_html__( 'Request', 'wk-mp-rfq' ),
 					'quote-product'  => esc_html__( 'Product Name', 'wk-mp-rfq' ),
 					'quote-quantity' => esc_html__( 'Requested Quantity', 'wk-mp-rfq' ),
+
+					// Jesse edit: Add Total Quotes received on buyers RFQ list header
+					'quontes-recieved' => esc_html__( 'Offers', 'wk-mp-rfq' ),
 					'created-on'     => esc_html__( 'Created On', 'wk-mp-rfq' ),
 					'quote-actions'  => esc_html__( 'Actions', 'wk-mp-rfq' ),
 				);
