@@ -180,7 +180,8 @@ if ( ! class_exists( 'Womprfq_Customer_Main_Quote' ) ) {
 						if ( $data_quote->seller_id ) {
 							$user = get_user_by( 'ID', $data_quote->seller_id );
 							if ( $user ) {
-								$seller = $user->user_email;
+								// Jesse edit: On Buyers individual quotes list under a request, change seller email to shop name
+								$seller = $user->shop_name;
 							}
 						}
 						if ( $auth == intval( $data_quote->seller_id ) ) {
