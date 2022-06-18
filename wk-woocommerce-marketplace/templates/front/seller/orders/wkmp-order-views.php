@@ -492,7 +492,8 @@ $order = wc_get_order( $mp_order_data['order_id'] );
 				$disable = ( $order->has_status( 'processing' ) ) ? "" : "disabled";
 				// if ( 'wc-completed' !== $order_status ) {
 					?>
-					<form method="POST">
+					<!-- Jesse edit: Add warning on Purchased button -->
+					<form method="POST" onSubmit="return confirm('Important: By pressing OK, you confirm that you have purchased the item according to your Buyer\'s exact specifications and subsequent comments. \n\nPlease send your Buyer a copy of the official store receipt through the Comments section of the order. ') ">
 						<table class="shop_table shop_table_responsive customer_details widefat">
 							<tbody>
 							<tr>
