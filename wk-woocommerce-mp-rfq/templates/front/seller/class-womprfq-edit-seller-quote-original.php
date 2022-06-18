@@ -100,8 +100,7 @@ if ( ! class_exists( 'Womprfq_Edit_Seller_Quote' ) ) {
 					<label><?php esc_html_e( 'Status', 'wk-mp-rfq' ); ?></label>
 				</th>
 				<td class="forminp">
-					<!-- Jesse edit: On sellers view, add prefix Stat2 to quote status to allow Find and Replace -->
-					<span>Stat2-<?php echo esc_html( $this->status_title[ $seller_quote->status ] ); ?></span>
+					<span><?php echo esc_html( $this->status_title[ $seller_quote->status ] ); ?></span>
 				</td>
 			</tr>
 			<?php
