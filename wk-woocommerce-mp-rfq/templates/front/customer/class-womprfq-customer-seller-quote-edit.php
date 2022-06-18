@@ -120,7 +120,8 @@ if ( ! class_exists( 'Womprfq_Customer_Seller_Quote_Edit' ) ) {
 									</strong>
 								</td>
 								<td colspan="2" class="product-total toptable">
-									<?php echo esc_html( $this->status_title[ $seller_data->status ] ); ?>
+									<!-- Jesse edit: On buyers view, add prefix Stat1 to quote status to allow Find and Replace -->
+									Stat1-<?php echo esc_html( $this->status_title[ $seller_data->status ] ); ?>
 								</td>
 							</tr>
 							<?php // Jesse edit: Add  name of personal shopper on quote display
