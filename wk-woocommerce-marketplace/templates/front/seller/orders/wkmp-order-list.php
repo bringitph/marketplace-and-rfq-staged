@@ -39,9 +39,7 @@ defined( 'ABSPATH' ) || exit;
 						<tr>
 							<!--Jesse edit: Convert Order ID to hyperlink and remove hash-->
 							<td><a href="<?php echo esc_html( $seller_order['order_id'] ); ?>"><?php echo '' . esc_html( $seller_order['order_id'] ); ?></a></td>
-							<!-- Jesse edit: Step 3: Correctly show order status on Sellers Order History table incl. Purchased status -->
-							<!-- <td><?php //echo esc_html( ucfirst( $seller_order['order_status'] ) ); ?></td> -->
-							<td><?php echo esc_html( ucfirst( $order->get_status() ) ); ?></td>
+							<td><?php echo esc_html( ucfirst( $seller_order['order_status'] ) ); ?></td>
 							<td><?php echo esc_html( $seller_order['order_date'] ); ?></td>
 							<td><?php echo wp_kses_post( $seller_order['order_total'] ); ?></td>
 							<td><a href="<?php echo esc_url( $seller_order['view'] ); ?>" class="button" style="padding:12px;"><span class="dashicons dashicons-visibility"></span></a></td>
