@@ -71,14 +71,12 @@ $order = wc_get_order( $mp_order_data['order_id'] );
 											if ( ! empty( $details['meta_data'] ) ) {
 												foreach ( $details['meta_data'] as $m_data ) {
 
-													// Jesse edit: Purchased button on Sellers order view. 1/8
-													// if ( $m_data['key'] === 'Sold By' ) {
+													if ( $m_data['key'] === 'Sold By' ) {
 
 														echo '<dt class="variation-size">' . esc_html( wc_attribute_label( $m_data['key'] ) ) . ' : ' . wp_kses_post( $m_data['value'] ) . '</dt>';
 													}
 												}
-											// Jesse edit: Purchased button on Sellers order view. 2/8
-											// }
+											}
 											?>
 											</dl>
 											<?php do_action( 'wk_mp_append_order_meta_data', $product_id, $details, $order_id ); ?>
@@ -487,46 +485,22 @@ $order = wc_get_order( $mp_order_data['order_id'] );
 					'failed'     => __( 'failed', 'wk-marketplace' ),
 				);
 
-				// Jesse edit: Purchased button on Sellers order view. 3/8
-				$check_received = ($order->has_status('processing')) ? "true" : "false"; 
-				$disable = ( $order->has_status( 'processing' ) ) ? "" : "disabled";
-				// if ( 'wc-completed' !== $order_status ) {
+				if ( 'wc-completed' !== $order_status ) {
 					?>
 					<form method="POST">
 						<table class="shop_table shop_table_responsive customer_details widefat">
 							<tbody>
 							<tr>
-								<!-- Jesse edit: Purchased button on Sellers order view. 4/8 -->
-								<!-- <td><label for="mp-status"><?php esc_html_e('Status', 'wk-marketplace'); ?>:</label></td> -->
-								<!-- <td>
+								<td><label for="mp-status"><?php esc_html_e( 'Status', 'wk-marketplace' ); ?>:</label></td>
+								<td>
 									<select name="mp-order-status" id="mp-status" class="mp-select form-control">
 										<?php foreach ( wc_get_order_statuses() as $key => $value ) { ?>
 											<option value="<?php echo esc_attr( $key ); ?>" <?php echo ( $order_status === $key ) ? 'selected' : ''; ?>><?php echo esc_html( $value ); ?></option>
 										<?php } ?>
 									</select>
-								
-								// Jesse edit: Purchased button on Sellers order view. 5/8
-								</td> -->	
-								<td>
-								<?php wp_nonce_field('mp_order_status_nonce_action', 'mp_order_status_nonce'); ?>
-								<input type='hidden' name='mp-order-id' value="<?php echo esc_attr($order_id); ?>"/>
-								<input type='hidden' name='mp-seller-id' value="<?php echo esc_attr($seller_id); ?>"/>
-								<input type='hidden' name='mp-old-order-status' value="<?php echo esc_attr($order_status); ?>"/>
-								<input type='hidden' name='mp-order-status' value="wc-purchased"/>
-								<button <?php echo $disable; ?> type="submit" name="mp-submit-status" class="woocommerce-button button view" value=""><?php esc_attr_e('Purchased', 'wk-marketplace'); ?></button>
 								</td>
-								
-								<!-- Jesse edit: Purchased button on Sellers order view. 6/8 -->
-								<td></td>
 							</tr>
-							
-							<!-- Jesse edit: Purchased button on Sellers order view. 7/8 -->
-							</tbody>
-							
-
-						</table>
-					</form>	
-							<!--		<tr>
+							<tr>
 								<?php
 								wp_nonce_field( 'mp_order_status_nonce_action', 'mp_order_status_nonce' );
 								?>
@@ -537,12 +511,10 @@ $order = wc_get_order( $mp_order_data['order_id'] );
 							</tr>
 							</tbody>
 						</table>
-					
-					// Jesse edit: Purchased button on Sellers order view. 8/8
-					</form> -->
-				<?php //} else { ?>
-					<p><?php //echo sprintf( /* translators: %s: Order status. */ esc_html__( 'Status: Order status is %s', 'wk-marketplace' ), esc_html( $translated_order_status[ $seller_order->get_status() ] ) ); ?></p>
-				<?php //} ?>
+					</form>
+				<?php } else { ?>
+					<p><?php echo sprintf( /* translators: %s: Order status. */ esc_html__( 'Status: Order status is %s', 'wk-marketplace' ), esc_html( $translated_order_status[ $seller_order->get_status() ] ) ); ?></p>
+				<?php } ?>
 			</div>
 
 			<?php
