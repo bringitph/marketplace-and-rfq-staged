@@ -514,6 +514,8 @@ $order = wc_get_order( $mp_order_data['order_id'] );
 								<input type='hidden' name='mp-seller-id' value="<?php echo esc_attr($seller_id); ?>"/>
 								<input type='hidden' name='mp-old-order-status' value="<?php echo esc_attr($order_status); ?>"/>
 								<input type='hidden' name='mp-order-status' value="wc-purchased"/>
+								<!-- Jesse edit: On sellers view, add text Purchase Instructions -->
+								Purchase Instructions<br/>
 								<button <?php echo $disable; ?> type="submit" name="mp-submit-status" class="woocommerce-button button view" value=""><?php esc_attr_e('Purchased', 'wk-marketplace'); ?></button>
 								</td>
 								
