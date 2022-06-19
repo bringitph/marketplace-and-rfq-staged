@@ -35,7 +35,11 @@ defined( 'ABSPATH' ) || exit;
 				</thead>
 				<tbody>
 				<?php if ( $orders ) { ?>
-					<?php foreach ( $orders as $key => $seller_order ) { ?>
+					<!-- Jesse edit: Step 3: Correctly show order status on Sellers Order History table incl. Completed status -->
+					<?php //foreach ( $orders as $key => $seller_order ) { ?>
+					<?php foreach ( $orders as $key => $seller_order ) { 
+                        $order    = wc_get_order( $seller_order['order_id'] ); 
+                    ?>
 						<tr>
 							<!--Jesse edit: Convert Order ID to hyperlink and remove hash-->
 							<td><a href="<?php echo esc_html( $seller_order['order_id'] ); ?>"><?php echo '' . esc_html( $seller_order['order_id'] ); ?></a></td>
