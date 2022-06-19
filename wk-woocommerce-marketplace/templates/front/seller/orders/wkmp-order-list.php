@@ -35,11 +35,15 @@ defined( 'ABSPATH' ) || exit;
 				</thead>
 				<tbody>
 				<?php if ( $orders ) { ?>
-					<?php foreach ( $orders as $key => $seller_order ) { ?>
+					<!-- Jesse edit: Step 3: Correctly show order status on Sellers Order History table incl. Purchased and Completed status 1/2 -->
+					<?php foreach ( $orders as $key => $seller_order ) { 
+						$order    = wc_get_order( $seller_order['order_id'] );
+					?>
 						<tr>
 							<!--Jesse edit: Convert Order ID to hyperlink and remove hash-->
 							<td><a href="<?php echo esc_html( $seller_order['order_id'] ); ?>"><?php echo '' . esc_html( $seller_order['order_id'] ); ?></a></td>
-							<td><?php echo esc_html( ucfirst( $seller_order['order_status'] ) ); ?></td>
+							<!-- Jesse edit: Step 3: Correctly show order status on Sellers Order History table incl. Purchased and Completed status 2/2 -->
+							<td><?php echo esc_html( ucfirst( $order->get_status() ) ); ?></td>
 							<td><?php echo esc_html( $seller_order['order_date'] ); ?></td>
 							<td><?php echo wp_kses_post( $seller_order['order_total'] ); ?></td>
 							<td><a href="<?php echo esc_url( $seller_order['view'] ); ?>" class="button" style="padding:12px;"><span class="dashicons dashicons-visibility"></span></a></td>
