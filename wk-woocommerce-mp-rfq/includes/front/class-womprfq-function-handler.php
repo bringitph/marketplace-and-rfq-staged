@@ -146,7 +146,8 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 					?>
 						<a href="<?php echo esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) . '?product_redirect=' . intval( $product->get_id() ) ); ?>">
 							<button class="wpmp-rfq-button">
-							<?php esc_html_e( 'LOGIN TO REQUEST FOR QUOTATION', 'wk-mp-rfq' ); ?>
+							<!-- Jesse edit: Hide LOGIN TO REQUEST FOR QUOTATION on product page when not logged in -->
+							<?php //esc_html_e( 'LOGIN TO REQUEST FOR QUOTATION', 'wk-mp-rfq' ); ?>
 							</button>
 						</a>
 					<?php
