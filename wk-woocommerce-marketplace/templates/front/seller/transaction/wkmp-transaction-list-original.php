@@ -28,8 +28,7 @@ defined( 'ABSPATH' ) || exit;
 					<td><?php esc_html_e( 'Transaction ID', 'wk-marketplace' ); ?></td>
 					<td><?php esc_html_e( 'Date', 'wk-marketplace' ); ?></td>
 					<td><?php esc_html_e( 'Amount', 'wk-marketplace' ); ?></td>
-					<!-- Jesse edit: hide Action column in Transactions List 1/2 -->
-					<!-- <td><?php //esc_html_e( 'Action', 'wk-marketplace' ); ?></td> -->
+					<td><?php esc_html_e( 'Action', 'wk-marketplace' ); ?></td>
 				</tr>
 				</thead>
 				<tbody>
@@ -39,8 +38,7 @@ defined( 'ABSPATH' ) || exit;
 							<td><a href="<?php echo esc_url( $transaction['view'] ); ?>"><?php echo esc_html( $transaction['transaction_id'] ); ?></a></td>
 							<td><?php echo esc_html( $transaction['created_on'] ); ?></td>
 							<td><?php echo wp_kses_post( $transaction['amount'] ); ?></td>
-							<!-- Jesse edit: hide Action column in Transactions List 2/2 -->
-							<!-- <td><a href="<?php //echo esc_url( $transaction['view'] ); ?>" class="button" style="padding:12px;"><span class="dashicons dashicons-visibility"></span></a></td> -->
+							<td><a href="<?php echo esc_url( $transaction['view'] ); ?>" class="button" style="padding:12px;"><span class="dashicons dashicons-visibility"></span></a></td>
 						</tr>
 					<?php } ?>
 				<?php } else { ?>
