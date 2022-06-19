@@ -64,8 +64,7 @@ defined( 'ABSPATH' ) || exit;
 					</thead>
 					<tbody>
 					<tr>
-						<!-- Jesse edit: Remove # in Sellers Transaction List table -->
-						<td><?php echo '' . esc_html( $transaction_info->order_id ); ?></td>
+						<td><?php echo '#' . esc_html( $transaction_info->order_id ); ?></td>
 						<td><?php echo esc_html( $product_name ); ?></td>
 						<td><?php echo esc_html( $seller_order_info['quantity'] ); ?></td>
 						<td>
