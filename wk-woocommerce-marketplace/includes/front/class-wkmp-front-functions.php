@@ -416,11 +416,12 @@ if ( ! class_exists( 'WKMP_Front_Functions' ) ) {
 						$new_items[ '../' . $page_name . '/' . $shop_address . '/' . get_option( '_wkmp_shipping_endpoint', 'shipping' ) ] = esc_html( get_option( 'mp_shipping_name', esc_html__( 'Shipping', 'wk-marketplace' ) ) );
 					}
 
+					// JS edit: Hide unneeded seller menus
 					$new_items[ '../' . $page_name . '/' . get_option( '_wkmp_profile_endpoint', 'profile' ) . '/edit' ]   = esc_html( get_option( '_wkmp_profile_endpoint_name', esc_html__( 'My Profile', 'wk-marketplace' ) ) );
-					$new_items[ '../' . $page_name . '/' . get_option( '_wkmp_notification_endpoint', 'notification' ) ]   = esc_html( get_option( '_wkmp_notification_endpoint_name', esc_html__( 'Notifications', 'wk-marketplace' ) ) );
-					$new_items[ '../' . $page_name . '/' . get_option( '_wkmp_shop_follower_endpoint', 'shop-follower' ) ] = esc_html( get_option( '_wkmp_shop_follower_endpoint_name', esc_html__( 'Shop Followers', 'wk-marketplace' ) ) );
+					// $new_items[ '../' . $page_name . '/' . get_option( '_wkmp_notification_endpoint', 'notification' ) ]   = esc_html( get_option( '_wkmp_notification_endpoint_name', esc_html__( 'Notifications', 'wk-marketplace' ) ) );
+					// $new_items[ '../' . $page_name . '/' . get_option( '_wkmp_shop_follower_endpoint', 'shop-follower' ) ] = esc_html( get_option( '_wkmp_shop_follower_endpoint_name', esc_html__( 'Shop Followers', 'wk-marketplace' ) ) );
 					$new_items = apply_filters( 'mp_woocommerce_account_menu_options', $new_items );
-					$new_items[ '../' . $page_name . '/' . get_option( '_wkmp_asktoadmin_endpoint', 'asktoadmin' ) ] = esc_html( get_option( '_wkmp_asktoadmin_endpoint_name', esc_html__( 'Ask Admin', 'wk-marketplace' ) ) );
+					// $new_items[ '../' . $page_name . '/' . get_option( '_wkmp_asktoadmin_endpoint', 'asktoadmin' ) ] = esc_html( get_option( '_wkmp_asktoadmin_endpoint_name', esc_html__( 'Ask Admin', 'wk-marketplace' ) ) );
 
 					if ( 1 === intval( get_option( '_wkmp_separate_seller_dashboard' ) ) ) {
 						$new_items['../seperate-dashboard'] = esc_html__( 'Admin Dashboard', 'wk-marketplace' );
