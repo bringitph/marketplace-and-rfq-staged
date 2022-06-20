@@ -578,55 +578,12 @@ if ( ! class_exists( 'WKMP_Front_Functions' ) ) {
 			wc_print_notices();
 			?>
 			<nav class="woocommerce-MyAccount-navigation">
-				
-				<!-- JS edit: Step 4: Collapsible for Seller pages. a. This adds the menus in seller pages -->
-                <!-- Sharmatech Default My Account Menu-->
-                <p style="font-size:20px; color:#eb9a72"><strong><a href="#" class="customer_menu">As Buyer <span style="float:none"><i class="thb-icon-right-open-mini"></i></span></a></strong></p>
-                <ul class="customer">
-                <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('rfq')); ?>">
-                            <a href="<?php echo site_url(); ?>/my-account/rfq/">My Shopping Requests</a>
-                </li>
-                <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('orders')); ?>">
-                        <a href="<?php echo site_url(); ?>/my-account/orders/">My Orders</a>
-                </li>
-                <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('favourite-seller')); ?>">
-                        <a href="<?php echo site_url(); ?>/my-account/favourite-seller/">My Favorite Seller</a>
-                </li>
-                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
-                        <a href="/submit-your-payment">Submit your Payment</a>
-                </li>
-                <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('edit-account')); ?>">
-                        <a href="<?php //echo site_url(); ?>/my-account/edit-account/">Account Details</a>
-                </li>
-                </ul>
-				
-				<!--JS edit: Step 4: Collapsible for Seller pages. b. Add Personal Shopper main menu-->
-                <p style="font-size:20px; color:#eb9a72"><strong><a href="#" class="seller_menu">As Personal Shopper <span style="float:none"><i class="thb-icon-right-open-mini"></i></span></a></strong></p>
-				
 				<ul class="wkmp-account-nav wkmp-nav-vertical">
-				
-				<!--JS edit: Step 4: Collapsible for Seller pages. c. Add Personal Shopper submenus    -->
-				<li class="<?php echo esc_attr(wc_get_account_menu_item_classes('../seller/manage-rfq')); ?>">
-				<a href="<?php echo site_url('seller/manage-rfq'); ?>">Manage RFQ</a>
-			    </li>
-			    
-					<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : 
-					
-					//JS edit: Step 4: Collapsible for Seller pages. d. Hide Logout submenu
-                    if($label == 'Manage RFQ' || $label == 'Logout') continue;
-					?>
+					<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
 						<li class="<?php echo esc_attr( wc_get_account_menu_item_classes( $endpoint ) ); ?>">
 							<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
 						</li>
 					<?php endforeach; ?>
-					
-						<!--JS edit: Step 4: Collapsible for Seller pages. e. Add custom URL-->
-                        <!-- Sharmatech -->
-                        <li class="woocommerce-MyAccount-navigation-link">
-                            <a href="/failed-meetup">Report Failed Meetup</a>
-                        </li>
-                    	<!-- Sharmatech -->			
-					
 				</ul>
 			</nav>
 			<?php
