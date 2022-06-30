@@ -211,12 +211,19 @@ if ( ! class_exists( 'Womprfq_Edit_Seller_Quote' ) ) {
 					} else {
 						?>
 						<tr valign='top'>
+						<!-- JS edit: Add tip next to Finalize button
 							<td colsapan="2">
 								<button id="wkmp-rfq-create-product" data-mqid="<?php echo esc_html( intval( $seller_quote->main_quotation_id ) ); ?>" data-sqid="<?php echo esc_html( intval( $seller_quote->id ) ); ?>" class="button">
 									<?php esc_html_e( 'Create Product', 'wk-mp-rfq' ); ?>
 								</button>
 							</td>
-						</tr>
+						</tr> -->
+						<th>
+						<button id="wkmp-rfq-create-product" data-mqid="<?php echo esc_html( intval( $seller_quote->main_quotation_id ) ); ?>" data-sqid="<?php echo esc_html( intval( $seller_quote->id ) ); ?>" class="button">
+									<?php esc_html_e( 'Create Product', 'wk-mp-rfq' ); ?>
+								</button>
+						</th>
+						<td>Description for Finalize button.</td>
 						<?php
 					}
 				}
