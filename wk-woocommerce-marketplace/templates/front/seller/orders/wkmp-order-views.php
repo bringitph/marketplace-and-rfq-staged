@@ -550,7 +550,7 @@ echo get_current_user_id();
 				<?php //} ?>
 			</div>
 
-			// JS edit: Change Order Hist Comm to seller and customer. Step 14
+			<!--JS edit: Change Order Hist Comm to seller and customer. Step 14-->
 			<h2><?php esc_html_e( 'Order History Communication', 'wk-ohc' ); ?></h2>
 			<?php 
 			global $wpdb;       
