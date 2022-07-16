@@ -23,7 +23,8 @@ $total_payment   = 0;
 do_action( 'wkmp_before_seller_order_review', $seller_order, $mp_order_data );
 $order = wc_get_order( $mp_order_data['order_id'] );
 // JS edit: Change Order Hist Comm to seller and customer. Step 13
-echo get_current_user_id();
+// JS edit: Fix number appearing on Main Menu
+// echo get_current_user_id();
 
 ?>
 <div class="woocommerce-account woocommerce">
