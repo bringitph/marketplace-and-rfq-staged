@@ -78,6 +78,23 @@ if ( ! class_exists( 'Womprfq_Front_Templates' ) ) {
 									 'value' => $quote_d['pro_desc'],
 								 );
 							}
+							
+							// JS edit. Add country and city drop down filter and country preference. Step 7
+							$country = WC()->countries->countries[ $quote_d['quotation_country'] ];
+							$state = WC()->countries->get_states( $quote_d['quotation_country'] )[$quote_d['quotation_state']];
+							if ( isset( $quote_d['quotation_country'] ) ) {
+								 $sh_data['country'] = array(
+									 'title' => esc_html__( 'Country', 'wk-mp-rfq' ),
+									 'value' => $country,
+								 );
+								if ( !empty($state) ) {
+									$sh_data['state'] = array(
+										 'title' => esc_html__( 'Region/State', 'wk-mp-rfq' ),
+										 'value' => $state,
+									 );
+								}
+							}
+							
 							if ( isset( $quote_d['image'] ) && ! empty( $quote_d['image'] ) ) {
 								$sh_data['image'] = array(
 									'title' => esc_html__( 'Sample Images', 'wk-mp-rfq' ),

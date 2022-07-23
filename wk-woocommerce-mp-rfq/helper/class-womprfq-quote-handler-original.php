@@ -189,37 +189,19 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 					$res[] = esc_html__( 'Requested Quote Topic : ', 'wk-mp-rfq' ) . esc_html( $product_name );
 					$res[] = esc_html__( 'Bulk Quantity Requested : ', 'wk-mp-rfq' ) . esc_html( $quantity );
 				}
-				
-				// JS edit. Add country and city drop down filter and country preference. Step 1
-				$res[] = esc_html__( 'Country : ', 'wk-mp-rfq' ) . esc_html( WC()->countries->countries[ $mdata->quotation_country ] );
 			}
 			return $res;
 		}
 
 		public function womprfq_notify_sellers_for_quote( $qdata, $qid ) {
-			
-			// JS edit. Add country and city drop down filter and country preference. Step 2
-			$q_meta_data = $this->womprfq_get_quote_meta_info( $qid );
 			$customer_id = intval( $qdata->customer_id );
 			$users       = get_users(
 				array(
 					'role'    => 'wk_marketplace_seller',
 					'exclude' => array( $customer_id ),
-					
-					// JS edit. Add country and city drop down filter and country preference. Step 3
-					'meta_query' => array(
-						'key'     => 'subscribe_country',
-						'value'   => $q_meta_data['quotation_country'],
-						'compare' => '='
-					)
 				)
 			);
 			foreach ( $users as $user ) {
-				
-				// JS edit. Add country and city drop down filter and country preference. Step 4
-				$subscribe_country = get_user_meta($user->ID, 'subscribe_country', true );
-				if($subscribe_country == "all"){
-				
 				if ( $user->user_email && ( $user->ID != $customer_id ) ) {
 					$smes  = array(
 						esc_html__( 'A new requested has been submitted by ', 'wk-mp-rfq' ) . get_user_by( 'ID', $customer_id )->user_login . '.',
@@ -232,24 +214,6 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 					);
 					do_action( 'womprfq_quotation', $sdata );
 				}
-			
-			// JS edit. Add country and city drop down filter and country preference. Step 5
-			}else{
-				
-					if ( $user->user_email && ( $user->ID != $customer_id ) && $subscribe_country == $q_meta_data['quotation_country'] ) {
-						$smes  = array(
-							esc_html__( 'A new requested has been submitted by ', 'wk-mp-rfq' ) . get_user_by( 'ID', $customer_id )->user_login . '.',
-						);
-						$smes  = $this->womprfq_get_mail_quotation_detail( $qid, $smes );
-						$sdata = array(
-							'msg'     => $smes,
-							'sendto'  => $user->user_email,
-							'heading' => esc_html__( 'New Request For Quotation', 'wk-mp-rfq' ),
-						);
-						do_action( 'womprfq_quotation', $sdata );
-					}
-				}
-			
 			}
 		}
 
@@ -695,92 +659,6 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 			return $tdata;
 		}
 
-		// JS edit. Add country and city drop down filter and country preference. Step 6
-		public function womprfq_get_seller_quotations_by_country( $sel_id, $tab, $offset, $limit,$country ) {
-			
-			$tdata = $data = array();
-			$tabs  = array(
-				'open'     => 0,
-				'pending'  => 1,
-				'answered' => 2,
-				'resolved' => 3,
-				'closed'   => 4,
-			);
-			$ids   = array();
-			if ( $sel_id && $tab ) {
-				$status = $tabs[ $tab ];
-				if ( $status == 0 ) {
-					$query = $this->wpdb->prepare( "SELECT main_quotation_id FROM $this->seller_quote_table WHERE seller_id = %d", $sel_id );
-					$res   = $this->wpdb->get_results( $query );
-					if ( $res ) {
-						$ids = wc_list_pluck( $res, 'main_quotation_id' );
-					}
-					if ( ! empty( $ids ) ) { 
-						$ids_str = implode( ',', $ids );
-						$query1  = $this->wpdb->prepare( "SELECT $this->main_quote_table.* FROM $this->main_quote_table JOIN $this->main_quote_meta_table ON $this->main_quote_table.id = $this->main_quote_meta_table.main_quotation_id WHERE $this->main_quote_meta_table.key = 'quotation_country' AND $this->main_quote_meta_table.value = '$country' AND $this->main_quote_table.status = %d AND $this->main_quote_table.customer_id != %d AND $this->main_quote_table.id NOT IN(" . esc_html( $ids_str ) . ' ) ORDER BY '.$this->main_quote_table.'.id DESC LIMIT %d, %d', 1, $sel_id, $offset, $limit );
-						$query1c = "SELECT count(*) as count FROM $this->main_quote_table JOIN $this->main_quote_meta_table ON $this->main_quote_table.id = $this->main_quote_meta_table.main_quotation_id WHERE $this->main_quote_meta_table.key = 'quotation_country' AND $this->main_quote_meta_table.value = '$country' AND $this->main_quote_table.status = 1 AND $this->main_quote_table.customer_id != $sel_id AND $this->main_quote_table.id NOT IN ( " . esc_html( $ids_str ) . ' )';
- 
-						$res1    = $this->wpdb->get_results( $query1 );
-						$resc    = $this->wpdb->get_results( $query1c );
-					} else {
-						$query1  = $this->wpdb->prepare( "SELECT $this->main_quote_table.* FROM $this->main_quote_table JOIN $this->main_quote_meta_table ON $this->main_quote_table.id = $this->main_quote_meta_table.main_quotation_id WHERE $this->main_quote_meta_table.key = 'quotation_country' AND $this->main_quote_meta_table.value = '$country' AND $this->main_quote_table.status = %d AND $this->main_quote_table.customer_id != %d  ORDER BY $this->main_quote_table.id DESC LIMIT %d, %d", 1, $sel_id, $offset, $limit );
-						
-						$query1c = $this->wpdb->prepare( "SELECT count(*) as count FROM $this->main_quote_table JOIN $this->main_quote_meta_table ON $this->main_quote_table.id = $this->main_quote_meta_table.main_quotation_id WHERE $this->main_quote_meta_table.key = 'quotation_country' AND $this->main_quote_meta_table.value = '$country' AND status = %d AND customer_id != %d", 1, $sel_id );
-						$res1    = $this->wpdb->get_results( $query1 );
-						$resc    = $this->wpdb->get_results( $query1c );
-					}
-					if ( ! empty( $res1 ) ) {
-						foreach ( $res1 as $rs ) {
-							if ( $rs->variation_id != 0 ) {
-								$pro_name = get_the_title( $rs->variation_id );
-							} elseif ( $rs->product_id != 0 ) {
-								$pro_name = get_the_title( $rs->product_id );
-							} else {
-								$dat = $this->womprfq_get_quote_meta_info( $rs->id );
-								if ( isset( $dat['pro_name'] ) ) {
-									$pro_name = $dat['pro_name'];
-								} else {
-									$pro_name = esc_html__( 'N\A', 'wk-mp-rfq' );
-								}
-							}
-							$user = get_user_by( 'ID', $rs->customer_id );
-
-							if ( $user ) {
-								$display_name = $user->display_name;
-								$user_email   = $user->user_email;
-							} else {
-								$display_name = esc_html__( 'N\A', 'wk-mp-rfq' );
-								$user_email   = esc_html__( 'N\A', 'wk-mp-rfq' );
-							}
-							$data[] = array(
-								'id'             => $rs->id,
-								'product_info'   => array(
-									'product_id'   => $rs->product_id,
-									'variation_id' => $rs->variation_id,
-									'name'         => $pro_name,
-								),
-								'customer_info'  => array(
-									'id'           => $rs->customer_id,
-									'display_name' => $display_name,
-									'email'        => $user_email,
-								),
-								'quote_status'   => $rs->status,
-								'quote_quantity' => $rs->quantity,
-								'date_created'   => $rs->date,
-							);
-						}
-					}
-				} 
-			}
-
-			$tdata['data']   = $data;
-			$tdata['tcount'] = $resc[0]->count;
-// 			echo "<pre>";print_r($tdata);
-			return $tdata;
-		}
-		
-		
-		
 		public function womprfq_get_quote_meta_info( $qid ) {
 			$res = false;
 			if ( $qid ) {

@@ -75,7 +75,63 @@ if ( ! class_exists( 'WKMP_Seller_Profile_Form' ) ) {
 
 							<div id="wkmp-general-tab" class="wkmp_tab_pane">
 
-								<div class="form-group">
+							<!-- JS edit. Add country and city drop down filter and country preference. Step 21 -->
+								<style type="text/css">
+									.w-50{
+										width: 50%;
+										float: left;
+									}
+									.subscribed_country{
+										height:100px;
+									}
+									.subscribed_country select{
+										border: 1px solid #000;
+									    padding-top: 10px !important;
+									    height: 44px;
+									    margin-bottom: 20px;
+									    color: #000;
+									    font-size: 12px;
+									    font-weight: 400;
+									    background: #fff;
+									    max-width: 100%;
+									    outline: 0;
+									    font-family: inherit;
+									    border-radius: 6px;
+										font-size: 16px;
+										
+									}
+									@media screen and (min-width:480px) and (max-width:800px) {
+										width: 100%;
+										float: none;
+									}
+								</style>
+								<div class="form-group w-50">
+									<label><?php esc_html_e( 'Subscribed E-Mail', 'wk-marketplace' ); ?></label>
+									<p>
+										<input type="checkbox" id="wk-seller-subscribe-email" name="wkmp_subscribe_email" value="yes" <?php echo ( 'yes' === $seller_info['wkmp_subscribe_email'] ) ? 'checked' : ''; ?>> <label for="wk-seller-banner-status"><?php esc_html_e( 'Received email on customer order request', 'wk-marketplace' ); ?> </label>
+									</p>
+								</div>
+								<div class="form-group w-50 subscribed_country" id="subscribed_country" <?php echo ( 'yes' !== $seller_info['wkmp_subscribe_email'] ) ? 'style="display: none;"' : ''; ?> >
+									<label for="subscribed-country"><?php esc_html_e( 'Country', 'wk-marketplace' ); ?></label>
+									<select name="wkmp_subscribed_country" id="subscribed-country" class="form-control" oninvalid="this.setCustomValidity('You need to select the country in the list.')" oninput="this.setCustomValidity('')" <?php echo ( 'yes' == $seller_info['wkmp_subscribe_email'] ) ? 'required' : ''; ?> >
+										<option value=""><?php esc_html_e( 'Select Country', 'wk-marketplace' ); ?></option>
+										<option value="all" <?php if($seller_info['wkmp_subscribed_country'] == "all" ){ echo "selected"; }  ?> ><?php esc_html_e( 'All', 'wk-marketplace' ); ?></option>
+										<?php
+										$countries_obj = new \WC_Countries();
+										$countries     = $countries_obj->__get( 'countries' );
+										foreach ( $countries as $key => $country ) {
+											?>
+											<?php if ( $key === $seller_info['wkmp_subscribed_country'] ) { ?>
+												<option value="<?php echo esc_attr( $key ); ?>" selected><?php echo esc_html( $country ); ?></option>
+											<?php } else { ?>
+												<option value="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $country ); ?></option>
+											<?php } ?>
+										<?php } ?>
+									</select>
+								</div>
+								<!-- gemini -->
+								<div class="form-group" style="clear:both">
+							
 									<label for="username"><?php esc_html_e( 'Username', 'wk-marketplace' ); ?></label>
 									<input class="form-control" type="text" name="wkmp_username" id="username" value="<?php echo esc_attr( $seller_info['wkmp_username'] ); ?>" readonly>
 								</div>
@@ -291,6 +347,14 @@ if ( ! class_exists( 'WKMP_Seller_Profile_Form' ) ) {
 						</div><!-- wkmp_tab_content end here -->
 						<?php wp_nonce_field( 'wkmp-user-nonce-action', 'wkmp-user-nonce' ); ?>
 					</form>
+					
+					<!-- JS edit. Add country and city drop down filter and country preference. Step 22 -->
+					<div class="wkmp-table-action-wrap"><br/>
+						<div class="wkmp-action-section right wkmp-text-right" style="width: 100%; text-align:left">
+							<button type="submit" class="button" form="wkmp-seller-profile"><?php esc_html_e( 'Save', 'wk-marketplace' ); ?></button>&nbsp;&nbsp;
+							<a href="<?php echo esc_url( get_permalink() . get_option( '_wkmp_store_endpoint', 'store' ) . '/' . $seller_info['wkmp_shop_url'] ); ?>" class="button" title="<?php esc_attr_e( 'View Profile', 'wk-marketplace' ); ?>" target="_blank"> <?php esc_html_e( 'View Profile', 'wk-marketplace' ); ?></a>
+						</div>
+					</div>
 
 				</div><!-- Main container end here -->
 			</div><!-- Woocommerce-account end here -->
