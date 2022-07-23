@@ -565,9 +565,6 @@ if ( ! class_exists( 'WKMarketplace' ) ) {
 				'wkmp_twitter',
 				'wkmp_linkedin',
 				'wkmp_youtube',
-				// JS edit. Add country and city drop down filter and country preference. Step 19
-				'wkmp_subscribe_email',
-				'wkmp_subscribed_country',
 			);
 
 			foreach ( $field_keys as  $field_key ) {
@@ -608,10 +605,6 @@ if ( ! class_exists( 'WKMarketplace' ) ) {
 				$seller_info['wkmp_avatar_id'] = empty( $user_meta['_thumbnail_id_avatar'][0] ) ? ( empty( $posted_data['wkmp_avatar_id'] ) ? '' : $posted_data['wkmp_avatar_id'] ) : $user_meta['_thumbnail_id_avatar'][0];
 				$seller_info['wkmp_logo_id']   = empty( $user_meta['_thumbnail_id_company_logo'][0] ) ? ( empty( $posted_data['wkmp_logo_id'] ) ? '' : $posted_data['wkmp_logo_id'] ) : $user_meta['_thumbnail_id_company_logo'][0];
 				$seller_info['wkmp_banner_id'] = empty( $user_meta['_thumbnail_id_shop_banner'][0] ) ? ( empty( $posted_data['wkmp_banner_id'] ) ? '' : $posted_data['wkmp_banner_id'] ) : $user_meta['_thumbnail_id_shop_banner'][0];
-				
-				// JS edit. Add country and city drop down filter and country preference. Step 20
-				$seller_info['wkmp_subscribe_email'] = empty( $user_meta['subscribe_email'][0] ) ? ( empty( $posted_data['wkmp_subscribe_email'] ) ? '' : $posted_data['wkmp_subscribe_email'] ) : $user_meta['subscribe_email'][0];
-				$seller_info['wkmp_subscribed_country'] = empty( $user_meta['subscribe_country'][0] ) ? ( empty( $posted_data['wkmp_subscribed_country'] ) ? '' : $posted_data['wkmp_subscribed_country'] ) : $user_meta['subscribe_country'][0];
 
 				$avatar_file = wp_get_attachment_image_src( $seller_info['wkmp_avatar_id'] );
 				$logo_file   = wp_get_attachment_image_src( $seller_info['wkmp_logo_id'] );

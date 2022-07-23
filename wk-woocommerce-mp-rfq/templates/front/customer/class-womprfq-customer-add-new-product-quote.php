@@ -44,6 +44,26 @@ if ( ! class_exists( 'Womprfq_Customer_Add_New_Product_Quote' ) ) {
 			</div>
 			<!-- Jesse: Add help links under Add New Product RFQ -->
             Request Reminders
+            
+            <!-- JS edit. Add country and city drop down filter and country preference. Step 8 -->
+            <style>
+				.subscribed_country select{
+					border: 1px solid #000;
+					padding-top: 10px !important;
+					height: 44px;
+					margin-bottom: 20px;
+					color: #000;
+					font-size: 12px;
+					font-weight: 400;
+					background: #fff;
+					max-width: 100%;
+					outline: 0;
+					font-family: inherit;
+					border-radius: 6px;
+					font-size: 16px;
+				}
+			</style>
+			
 			<div id="main_container" class="wk_transaction woocommerce-MyAccount-content wk-mp-rfq" style="display: contents;">
 				<form method="POST" id="wpmp-rfq-new-quote-form" class="wpmp-rfq-new-quote-form" action="">
 					<table class="form-table wc_status_table widefat">
@@ -94,6 +114,52 @@ if ( ! class_exists( 'Womprfq_Customer_Add_New_Product_Quote' ) ) {
 									<div id="wpmp-rfq-form-sample-img-error" class="error-class"></div>
 								</td>
 							</tr>
+							
+							<!-- JS edit. Add country and city drop down filter and country preference. Step 9 -->
+							<tr valign="top">
+								<th>
+									<label for="qcountry"><?php esc_html_e( 'Deliver To', 'wk-mp-rfq' ); ?></label><span class="required">*</span>
+								</th>
+								<td class="forminp subscribed_country">
+									<select name="wkmp_quotation_country" id="billing-country" class="form-control" oninvalid="this.setCustomValidity('You need to select the country in the list.')" oninput="this.setCustomValidity('')" required>
+										<option value=""><?php esc_html_e( 'Select Country', 'wk-mp-rfq' ); ?></option>
+										<?php
+										$countries_obj = new \WC_Countries();
+										$countries     = $countries_obj->__get( 'countries' );
+										foreach ( $countries as $key => $country ) {
+											?>
+											<?php if ( $key === $seller_info['wkmp_shop_country'] ) { ?>
+												<option value="<?php echo esc_attr( $key ); ?>" selected><?php echo esc_html( $country ); ?></option>
+											<?php } else { ?>
+												<option value="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $country ); ?></option>
+											<?php } ?>
+										<?php } ?>
+									</select>
+								
+								</td>
+							</tr>
+							<tr valign="top">
+								<th>
+									<label for="qcountry"><?php esc_html_e( 'Select Region/State', 'wk-mp-rfq' ); ?></label><span class="required">*</span>
+								</th>
+								<td class="forminp subscribed_country" id="state_html">
+									<select name="wkmp_quotation_state" id="add-rfq-state" class="form-control" required="required" >
+										<option value=""><?php esc_html_e( 'Select Region/State', 'wk-mp-rfq' ); ?></option>
+										<?php
+										$countries_obj = new \WC_Countries();
+										$states     = $countries_obj->get_states( 'US' );
+										foreach ( $states as $key => $state ) {
+											?>
+											
+												<option value="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $state ); ?></option>
+											
+										<?php } ?>
+									</select>
+								  
+								</td>
+							</tr>
+
+
 							<?php
 							$attr_obj   = new Helper\Womprfq_Attribute_Handler();
 							$attributes = $attr_obj->womprfq_get_attribute_info();

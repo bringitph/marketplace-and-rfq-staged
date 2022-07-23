@@ -114,7 +114,20 @@ if ( ! class_exists( 'Womprfq_Seller_Table_Template' ) ) {
 		<div class="woocommerce-pagination woocommerce-pagination--without-numbers woocommerce-Pagination wallet-pagination" style="margin-top:10px;">
 				<?php
 				if ( 1 !== $this->page && $this->page > 1 ) :
+				
+				// JS edit. Add country and city drop down filter and country preference. Step 10
+					$seller_country = get_user_meta(get_current_user_id(),'subscribe_country',true);
+					if( isset($_GET['c']) ){
+						$url = esc_url( site_url( esc_html( $page_name ) . '/manage-rfq/' . intval( $this->page - 1 ) . '?c=' . esc_html( $_GET['c'] )  ) );
+					}elseif(!empty($seller_country) && $seller_country != "all" && $this->tab == "open" ){
+						$url = esc_url( site_url( esc_html( $page_name ) . '/manage-rfq/' . intval( $this->page - 1 ) . '?c=' . esc_html( $seller_country )  ) );
+					}else{
+						$url = esc_url( site_url( esc_html( $page_name ) . '/manage-rfq/' . intval( $this->page - 1 ) . '?tab=' . esc_html( $this->tab )  ) );
+					}
+					
 					?>
+				
+				<!-- JS edit. Add country and city drop down filter and country preference. Step 11 -->
 				<a class="woocommerce-button woocommerce-button--previous woocommerce-Button woocommerce-Button--previous button" href="<?php echo esc_url( site_url( esc_html( $page_name ) . '/manage-rfq/' . intval( $this->page - 1 ) . '?tab=' . esc_html( $this->tab ) ) ); ?>">
 					<?php esc_html_e( 'Previous', 'wk-mp-rfq' ); ?>
 				</a>
@@ -122,7 +135,20 @@ if ( ! class_exists( 'Womprfq_Seller_Table_Template' ) ) {
 
 				<?php
 				if ( ceil( $this->total_count / $this->limit ) > $this->page ) :
+				
+				// JS edit. Add country and city drop down filter and country preference. Step 12
+					$seller_country = get_user_meta(get_current_user_id(),'subscribe_country',true);
+					if( isset($_GET['c']) ){
+						$url = esc_url( site_url( esc_html( $page_name ) . '/manage-rfq/' . intval( $this->page + 1 ) . '?c=' . esc_html( $_GET['c'] )  ) );
+					}elseif(!empty($seller_country) && $seller_country != "all" && $this->tab == "open" ){
+						$url = esc_url( site_url( esc_html( $page_name ) . '/manage-rfq/' . intval( $this->page + 1 ) . '?c=' . esc_html( $seller_country )  ) );
+					}else{
+						$url = esc_url( site_url( esc_html( $page_name ) . '/manage-rfq/' . intval( $this->page + 1 ) . '?tab=' . esc_html( $this->tab )  ) );
+					}
+					
 					?>
+				
+				<!-- JS edit. Add country and city drop down filter and country preference. Step 13 -->
 				<a class="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button" href="<?php echo esc_url( site_url( esc_html( $page_name ) . '/manage-rfq/' . intval( $this->page + 1 ) . '?tab=' . esc_html( $this->tab ) ) ); ?>">
 					<?php echo esc_html_e( 'Next', 'wk-mp-rfq' ); ?>
 					</a>

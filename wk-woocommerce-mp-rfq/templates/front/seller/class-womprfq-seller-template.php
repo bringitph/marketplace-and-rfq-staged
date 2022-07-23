@@ -53,9 +53,74 @@ if ( ! class_exists( 'Womprfq_Seller_Template' ) ) {
 			} else {
 				$page = 1;
 			}
-			$limit  = 5;
+			// JS edit. Add country and city drop down filter and country preference. Step 14
+			$limit  = 10;
 			$offset = ( $page == 1 ) ? 0 : ( $page - 1 ) * $limit;
 			?>
+			
+			<!-- JS edit. Add country and city drop down filter and country preference. Step 15 -->
+			<style>
+				.wk-mp-rfq-header .dropbtn{
+					background-color: #eb9a72;
+					color: #fff;
+					padding: 12px;
+					font-size: 16px;
+					border: 1px solid #eb9a72;
+					cursor: pointer;
+					border-radius: 5px;
+					padding-right: 20px;
+				}
+				.dropdown:before {
+					content: "▼";
+					position: absolute;
+					color: #fff;
+					right: 0;
+					font-size: 12px;
+					margin: 11px 4px;
+				}
+				.wk-mp-rfq-header .dropdown {
+				  position: relative;
+				  display: inline-block;
+				}
+
+				.wk-mp-rfq-header .dropdown-content {
+				  	display: none;
+				    position: absolute;
+				    background-color: #f9f9f9;
+				    min-width: 100%;
+				    overflow: auto;
+				    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+				    z-index: 1;
+				    height: 300px;
+				    overflow-y: auto;
+				}
+
+				.wk-mp-rfq-header .dropdown-content a {
+				    color: black;
+				    padding: 12px 16px;
+				    text-decoration: none;
+				    display: block;
+				}
+				.wk-mp-rfq-header .dropdown-content a:hover {
+					background:#eee;
+				}
+				.wk-mp-rfq-header .dropdown:hover .dropdown-content {
+				  display: block;
+				}
+				.wk-mp-rfq-header{
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+				}
+				@media only screen and (max-width: 767px){
+					.wk-mp-rfq-header{
+						display:block;
+						margin-bottom:30px
+					}
+				}
+				
+			</style>
+			
 			<div class="woocommerce-account woocommerce">
 				<?php apply_filters( 'mp_get_wc_account_menu', 'marketplace' ); ?>
 				<div class="woocommerce-MyAccount-content">
@@ -63,6 +128,45 @@ if ( ! class_exists( 'Womprfq_Seller_Template' ) ) {
 						<h2>
 							<?php echo ucfirst( esc_html( $this->tab_title[ $tab ] ) . ' ' . esc_html__( 'Quotation Request', 'wk-mp-rfq' ) ); ?>
 						</h2>
+					
+					<!-- JS edit. Add country and city drop down filter and country preference. Step 16 -->
+					<?php if($tab == 'open'){ ?>
+							<div class="dropdown">
+								<button class="dropbtn">
+									<?php 
+									$subscribe_email = get_user_meta(get_current_user_id(),'subscribe_country', true);
+									if(isset($_GET['c'])){ 
+										if( $_GET['c'] == 'all' ) { 
+											echo "All";
+										}else{
+											echo WC()->countries->countries[ $_GET['c'] ];
+										}
+									?>
+										
+									<?php }elseif(!empty($subscribe_email)) {
+										if($subscribe_email == "all"){
+											echo "All";
+										}else{
+											echo WC()->countries->countries[ $subscribe_email ];
+										}
+									?>
+									<?php }else{ ?>
+										All
+									<?php } ?>
+								</button>
+							 	<div class="dropdown-content">
+								    <a href="?c=all">All</a>
+							 		<?php 
+							 			$countries_obj = new \WC_Countries();
+										$countries     = $countries_obj->__get( 'countries' );
+										foreach ( $countries as $key => $country ) {
+							 		?>
+								    	<a href="?c=<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $country ); ?></a>
+								    <?php } ?>
+								</div> 
+							</div>
+						<?php } ?>
+						
 					</div>
 					<div id="main_container" class="wk_transaction woocommerce-MyAccount-content wk-mp-rfq" style="display: contents;">
 					<?php
@@ -116,10 +220,44 @@ if ( ! class_exists( 'Womprfq_Seller_Template' ) ) {
 			);
 
 			$tab_data = $this->helper->womprfq_get_seller_quotations( get_current_user_id(), $tab, $offset, $limit );
-			if ( ! empty( $tab_data ) ) {
+			
+			// JS edit. Add country and city drop down filter and country preference. Step 17
+			if($tab == 'open'){
+				if(isset($_GET['c'])){
+					$seller_country = $_GET['c'];
+				}else{
+					$seller_country = get_user_meta(get_current_user_id(),'subscribe_country',true);
+				}
+				$limit = 10;
+				if($_GET['c'] === "all" OR  empty($seller_country) OR  $seller_country == "all" ){ 
+					$tab_data = $this->helper->womprfq_get_seller_quotations( get_current_user_id(), $tab, $offset, $limit );
+				}else{
+					$tab_data = $this->helper->womprfq_get_seller_quotations_by_country( get_current_user_id(), $tab, $offset, $limit,$seller_country );
+				}		
+				
+				
+				$tab_data_new = array();
+				if(!empty($tab_data['data'])){
+					foreach ($tab_data['data'] as $key => $data) {
+							$tab_data_new[] = $data;
+					}
+				} 
+
+				if ( ! empty( $tab_data ) ) {
+					$data['data'] = $tab_data_new;
+					$data['tab'] = $tab;
+				}
+				$total_count = $tab_data['tcount'];
+			}else{
+			
+			if ( ! empty( $tab_data ) ) {	
 				$data['data'] = $tab_data['data'];
 			}
 			$total_count = $tab_data['tcount'];
+			
+			// JS edit. Add country and city drop down filter and country preference. Step 18
+			}
+			
 			$table       = new Front\Seller\Womprfq_Seller_Table_Template( $data, $tab, $page, $limit, $total_count );
 		}
 
