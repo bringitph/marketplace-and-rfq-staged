@@ -142,21 +142,14 @@ if ( ! class_exists( 'Womprfq_Customer_Add_New_Product_Quote' ) ) {
 								<th>
 									<label for="qcountry"><?php esc_html_e( 'Select Region/State', 'wk-mp-rfq' ); ?></label><span class="required">*</span>
 								</th>
+								
+								<!-- JS edit. Make state unselectable before Country is selected -->
 								<td class="forminp subscribed_country" id="state_html">
-									<select name="wkmp_quotation_state" id="add-rfq-state" class="form-control" required="required" >
-										<option value=""><?php esc_html_e( 'Select Region/State', 'wk-mp-rfq' ); ?></option>
-										<?php
-										$countries_obj = new \WC_Countries();
-										$states     = $countries_obj->get_states( 'US' );
-										foreach ( $states as $key => $state ) {
-											?>
-											
-												<option value="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $state ); ?></option>
-											
-										<?php } ?>
+									<select name="wkmp_quotation_state" id="add-rfq-state" class="form-control" required="required readonly" >
+										<option value=""><?php esc_html_e( 'Please select country first', 'wk-mp-rfq' ); ?></option>
+										
 									</select>
 								  
-								</td>
 							</tr>
 
 
