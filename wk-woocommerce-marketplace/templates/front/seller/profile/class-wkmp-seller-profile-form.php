@@ -285,7 +285,7 @@ if ( ! class_exists( 'WKMP_Seller_Profile_Form' ) ) {
 											<button type="button" class="button" id="wkmp-upload-shop-logo"><?php esc_html_e( 'Upload', 'wk-marketplace' ); ?></button>
 											<button type="button" class="button wkmp-remove-shop-logo" style="color:#fff;background-color:#da2020"> <?php esc_html_e( 'Remove', 'wk-marketplace' ); ?></button>
 										<!--Jesse edit: Add reminder to Save after uploading photo -->
-                                		<br/><br/><font size="-1" style="color:#8f8d8d">Made changes? Don't forget to hit the SAVE button.</font>
+                                		<br/><br/><font size="-1" style="color:#8f8d8d">Made changes? Don't forget to hit SAVE above ^</font>
 										</div>
 									</div>
 
@@ -348,13 +348,6 @@ if ( ! class_exists( 'WKMP_Seller_Profile_Form' ) ) {
 						<?php wp_nonce_field( 'wkmp-user-nonce-action', 'wkmp-user-nonce' ); ?>
 					</form>
 					
-					<!-- JS edit. Add country and city drop down filter and country preference. Step 22 -->
-					<div class="wkmp-table-action-wrap"><br/>
-						<div class="wkmp-action-section right wkmp-text-right" style="width: 100%; text-align:left">
-							<button type="submit" class="button" form="wkmp-seller-profile"><?php esc_html_e( 'Save', 'wk-marketplace' ); ?></button>&nbsp;&nbsp;
-							<a href="<?php echo esc_url( get_permalink() . get_option( '_wkmp_store_endpoint', 'store' ) . '/' . $seller_info['wkmp_shop_url'] ); ?>" class="button" title="<?php esc_attr_e( 'View Profile', 'wk-marketplace' ); ?>" target="_blank"> <?php esc_html_e( 'View Profile', 'wk-marketplace' ); ?></a>
-						</div>
-					</div>
 
 				</div><!-- Main container end here -->
 			</div><!-- Woocommerce-account end here -->
