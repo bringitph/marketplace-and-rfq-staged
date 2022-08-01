@@ -183,7 +183,24 @@ if ( ! class_exists( 'Womprfq_Front_Templates' ) ) {
 							</tr>
 							<?php
 							}
-							 /*************Total quotation END***************/
+							/*************Total quotation END***************/
+							
+							//JS edit. Cancel this request button on Buyers RFQ. Step 1
+							if($data->customer_id == get_current_user_id() &&  $data->status != 3 ):
+							?> 
+								<tr>
+									<td colspan="2" id="cancel-button">
+										<button class="markasclosed" data-product= "<?= $product; ?>" data-id ="<?= $data->id ; ?>">Cancel</button>
+									</td>
+								</tr>	
+							
+							<?php  endif; ?>
+							<?php 
+							if($data->status == 3) : 
+								echo '<tr><td colspan="2">This request is now closed.</td></tr>';
+							endif;
+							//End 
+							 
 							?>
 						</tbody>
 					</table>

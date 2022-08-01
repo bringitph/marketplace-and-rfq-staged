@@ -410,9 +410,7 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 									$this->helper->womprfq_add_quote_meta( $mn_data, $main_data->id );
 									$res['status'] = true;
 									$this->helper->womprfq_update_seller_quotation_status( $sup_q->id, 4 );
-									
-									//JS edit. Cancel this request button on Buyers RFQ. Step 2
-									$this->helper->womprfq_update_main_quotation_status( $main_data->id, 3 );
+									$this->helper->womprfq_update_main_quotation_status( $main_data->id, 2 );
 
 									$smes       = array(
 										esc_html__( 'Quotation has been approved by Seller', 'wk-mp-rfq' ) . ' ( #' . intval( $sup_q->id ) . ' ).',
