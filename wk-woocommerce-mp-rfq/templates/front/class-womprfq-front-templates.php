@@ -84,7 +84,8 @@ if ( ! class_exists( 'Womprfq_Front_Templates' ) ) {
 							$state = WC()->countries->get_states( $quote_d['quotation_country'] )[$quote_d['quotation_state']];
 							if ( isset( $quote_d['quotation_country'] ) ) {
 								 $sh_data['country'] = array(
-									 'title' => esc_html__( 'Country', 'wk-mp-rfq' ),
+									 // JS edit. Change Country to Deliver To for both buyer and seller Main RFQ table.
+									 'title' => esc_html__( 'Deliver To', 'wk-mp-rfq' ),
 									 'value' => $country,
 								 );
 								if ( !empty($state) ) {
