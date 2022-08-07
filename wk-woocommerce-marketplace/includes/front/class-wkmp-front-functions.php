@@ -585,17 +585,18 @@ if ( ! class_exists( 'WKMP_Front_Functions' ) ) {
                 <p style="font-size:20px; color:#eb9a72"><strong><a href="#" class="customer_menu">As Buyer <span style="float:none"><i class="thb-icon-right-open-mini"></i></span></a></strong></p>
                 <ul class="customer">
                 <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('rfq')); ?>">
-                            <a href="<?php echo site_url(); ?>/my-account/rfq/">My Shopping Requests</a>
+                            <!-- JS edit. Make all sub-menus orange. Seller menus -->
+                            <a href="<?php echo site_url(); ?>/my-account/rfq/"><font color="#eb9a72">My Shopping Requests</font></a>
                 </li>
                 <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('orders')); ?>">
-                        <a href="<?php echo site_url(); ?>/my-account/orders/">My Orders</a>
+                        <a href="<?php echo site_url(); ?>/my-account/orders/"><font color="#eb9a72">My Orders</font></a>
                 </li>
                 <!-- JS edit: Hide Favorite Sellers and Account Details on Buyers menu (from Seller Menus). Step 3 -->
                 <!-- <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('favourite-seller')); ?>"> -->
                         <!-- <a href="<?php echo site_url(); ?>/my-account/favourite-seller/">My Favorite Seller</a> -->
                 <!-- </li> -->
                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
-                        <a href="/submit-your-payment">Submit your Payment</a>
+                        <a href="/submit-your-payment"><font color="#eb9a72">Submit your Payment</font></a>
                 </li>
                 <!-- <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('edit-account')); ?>"> -->
                         <!-- <a href="<?php //echo site_url(); ?>/my-account/edit-account/">Account Details</a> -->
@@ -609,7 +610,7 @@ if ( ! class_exists( 'WKMP_Front_Functions' ) ) {
 				
 				<!--JS edit: Step 4: Collapsible for Seller pages. c. Add Personal Shopper submenus    -->
 				<li class="<?php echo esc_attr(wc_get_account_menu_item_classes('../seller/manage-rfq')); ?>">
-				<a href="<?php echo site_url('seller/manage-rfq'); ?>">Manage RFQ</a>
+				<a href="<?php echo site_url('seller/manage-rfq'); ?>"><font color="#eb9a72">Manage RFQ</font></a>
 			    </li>
 			    
 					<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : 
@@ -618,14 +619,14 @@ if ( ! class_exists( 'WKMP_Front_Functions' ) ) {
                     if($label == 'Manage RFQ' || $label == 'Logout') continue;
 					?>
 						<li class="<?php echo esc_attr( wc_get_account_menu_item_classes( $endpoint ) ); ?>">
-							<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
+							<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><font color="#eb9a72"><?php echo esc_html( $label ); ?></font></a>
 						</li>
 					<?php endforeach; ?>
 					
 						<!--JS edit: Step 4: Collapsible for Seller pages. e. Add custom URL-->
                         <!-- Sharmatech -->
                         <li class="woocommerce-MyAccount-navigation-link">
-                            <a href="/failed-meetup">Report Failed Meetup</a>
+                            <a href="/failed-meetup"><font color="#eb9a72">Report Failed Meetup</font></a>
                         </li>
                     	<!-- Sharmatech -->			
 					
