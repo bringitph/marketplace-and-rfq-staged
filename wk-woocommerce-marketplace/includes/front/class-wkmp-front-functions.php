@@ -590,15 +590,16 @@ if ( ! class_exists( 'WKMP_Front_Functions' ) ) {
                 <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('orders')); ?>">
                         <a href="<?php echo site_url(); ?>/my-account/orders/">My Orders</a>
                 </li>
-                <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('favourite-seller')); ?>">
-                        <a href="<?php echo site_url(); ?>/my-account/favourite-seller/">My Favorite Seller</a>
-                </li>
+                <!-- JS edit: Hide Favorite Sellers and Account Details on Buyers menu (from Seller Menus). Step 3 -->
+                <!-- <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('favourite-seller')); ?>"> -->
+                        <!-- <a href="<?php echo site_url(); ?>/my-account/favourite-seller/">My Favorite Seller</a> -->
+                <!-- </li> -->
                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
                         <a href="/submit-your-payment">Submit your Payment</a>
                 </li>
-                <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('edit-account')); ?>">
-                        <a href="<?php //echo site_url(); ?>/my-account/edit-account/">Account Details</a>
-                </li>
+                <!-- <li class="<?php echo esc_attr(wc_get_account_menu_item_classes('edit-account')); ?>"> -->
+                        <!-- <a href="<?php //echo site_url(); ?>/my-account/edit-account/">Account Details</a> -->
+                <!-- </li> -->
                 </ul>
 				
 				<!--JS edit: Step 4: Collapsible for Seller pages. b. Add Personal Shopper main menu-->
