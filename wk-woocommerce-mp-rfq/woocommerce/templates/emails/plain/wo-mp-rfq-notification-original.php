@@ -21,9 +21,7 @@ if (!defined('ABSPATH')) {
 echo '= ' . utf8_decode(esc_html($email_heading)) . " =\n\n";
 
 /* translators: %s Customer email */
-//JS edit. New Emails - part 1.25
-$user  = get_user_by('email', $customer_email);
-echo sprintf(utf8_decode(esc_html__('Hi %s,', 'wk-mp-rfq'), esc_html($user->data->user_login))) . "\n\n";
+echo sprintf(utf8_decode(esc_html__('Hi %s,', 'wk-mp-rfq'), esc_html($customer_email))) . "\n\n";
 
 if (!empty($email_message)) {
     foreach ($email_message as $key => $message) {
