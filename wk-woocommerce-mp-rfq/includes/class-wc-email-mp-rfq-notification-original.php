@@ -42,9 +42,6 @@ if ( ! class_exists( 'WC_EMAIL_Mp_Rfq_Notification' ) ) :
 			$this->recipient      = $data['sendto'];
 			$this->customer_email = $data['sendto'];
 			$this->heading        = $data['heading'];
-			//JS edit. New Emails - part 1.13
-			$this->subject        = $data['subject'];
-			
 			if ( ! $this->is_enabled() || ! $this->get_recipient() ) {
 				return;
 			}

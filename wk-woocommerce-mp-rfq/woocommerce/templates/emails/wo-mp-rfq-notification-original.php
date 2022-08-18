@@ -23,21 +23,14 @@ if (!defined('ABSPATH')) {
 <?php do_action('woocommerce_email_header', $email_heading, $email);?>
 
 <?php /* translators: %s Customer email */?>
-
-<!--JS edit. New Emails - part 1.23-->
-<?php $user  = get_user_by('email', $customer_email);  ?>
-
-<p><?php printf(utf8_decode(esc_html__('Hi %s,', 'wk-mp-rfq')), utf8_decode(esc_html($user->data->user_login))); ?></p>
+<p><?php printf(utf8_decode(esc_html__('Hi %s,', 'wk-mp-rfq')), utf8_decode(esc_html($customer_email)));?></p>
 
 <?php
 
 if (!empty($email_message)) {
     foreach ($email_message as $key => $message) {
         ?>
-        
-        <!-- JS edit. New Emails - part 1.24 -->
-        <?php echo utf8_decode($message); ?>
-        
+        <p><?php echo utf8_decode(esc_html($message)); ?></p>
     <?php
     }
 }

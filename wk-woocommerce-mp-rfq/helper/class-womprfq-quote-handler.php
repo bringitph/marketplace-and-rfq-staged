@@ -134,13 +134,19 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 					do_action( 'womprfq_save_quotation_meta', $id, $attr );
 					// to customer
 					$cmes  = array(
-						esc_html__( 'A new requested has been submitted by you.', 'wk-mp-rfq' ),
+						//JS edit. New Emails - part 1.1
+						'<p>Thanks for submitting your shopping request! </p>
+						You\'ll receive an email when you get offers from Personal Shoppers. You can also view the offers sent to you anytime by logging in to your <a href="'.home_url().'/my-account/rfq">Buyer dashboard > Shopping Requests</a>. Best of luck.'
 					);
-					$cmes  = $this->womprfq_get_mail_quotation_detail( $id, $cmes );
+					//JS edit. New Emails - part 1.2
+					$cmes  = $this->womprfq_get_mail_quotation_detail_customer($id, $cmes, $data);
+					
 					$cdata = array(
 						'msg'     => $cmes,
 						'sendto'  => get_user_by( 'ID', $data['customer_id'] )->user_email,
-						'heading' => esc_html__( 'New Request For Quotation', 'wk-mp-rfq' ),
+						//JS edit. New Emails - part 1.3
+						'heading' => esc_html__( 'You\'ve submitted a new request', 'wk-mp-rfq' ),
+						'subject' => esc_html__('Bringit: Your Shopping Request', 'wk-mp-rfq'),
 					);
 					do_action( 'womprfq_quotation', $cdata );
 
@@ -151,7 +157,12 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 
 					// to admin
 					$ames  = array(
-						esc_html__( 'A new requested has been submitted by ', 'wk-mp-rfq' ) . get_user_by( 'ID', $data['customer_id'] )->user_login . '.',
+						//JS edit. New Emails - part 1.4
+						esc_html__( 'A new shopping request has been submitted by ', 'wk-mp-rfq' ) . get_user_by( 'ID', $data['customer_id'] )->user_login . 
+						'.<p>Deliver to: </p>
+						<p>Item: </p>
+						<p><a href="' . home_url() . '/">Bringit.ph</a><br/><br/></p>',
+						
 					);
 					$ames  = $this->womprfq_get_mail_quotation_detail( $id, $ames );
 					$adata = array(
@@ -185,18 +196,135 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 					}
 					$quantity = $data->quantity;
 
-					$res[] = esc_html__( 'Please find the following details :', 'wk-mp-rfq' );
-					$res[] = esc_html__( 'Requested Quote Topic : ', 'wk-mp-rfq' ) . esc_html( $product_name );
-					$res[] = esc_html__( 'Bulk Quantity Requested : ', 'wk-mp-rfq' ) . esc_html( $quantity );
+					//JS edit. New Emails - part 1.5
+					//$res[] = esc_html__( 'Please find the following details :', 'wk-mp-rfq' );
+					//$res[] = esc_html__( 'Requested Quote Topic : ', 'wk-mp-rfq' ) . esc_html( $product_name );
+					//$res[] = esc_html__( 'Bulk Quantity Requested : ', 'wk-mp-rfq' ) . esc_html( $quantity );
 				}
 				
-				// JS edit. Add country and city drop down filter and country preference. Step 1
-				$res[] = esc_html__( 'Country : ', 'wk-mp-rfq' ) . esc_html( WC()->countries->countries[ $mdata->quotation_country ] );
+				//JS edit. Add country and city drop down filter and country preference. Step 1
+				//JS edit. New Emails - part 1.6
+				//$res[] = esc_html__( 'Deliver to: ', 'wk-mp-rfq' ) . esc_html( WC()->countries->countries[ $mdata->quotation_country ] );
+				//$res[] = '<p></p>';
+				//$res[] = '<p><a href="' . home_url() . '/">Bringit.ph</a></p>';
+				//$res[] = '<p>&nbsp;</p>';
+	
 			}
 			return $res;
 		}
 
+		public function womprfq_get_mail_quotation_detail_customer($qid, $res, $data)
+		{
+			if (intval($qid) > 0) {
+				$data  = $this->womprfq_get_main_quotation_by_id($qid);
+				$mdata = (object) $this->womprfq_get_quote_meta_info($qid);
+
+				$array_mdata = (array) $mdata;
+
+				$delivery_location  = $array_mdata['wpmp-rfq-admin-quote-your_location_(city_and_country)'];
+				$customer = get_userdata($data->customer_id);
+
+
+				if ($data) {
+					if ($data->product_id != 0) {
+						if ($data->variation_id != 0) {
+							$product_name = get_the_title($data->variation_id);
+						} else {
+							$product_name = get_the_title($data->product_id);
+						}
+					} else {
+						$product_name = $mdata->pro_name;
+					}
+					$quantity = $data->quantity;
+
+					$res[] = '<table style="padding-bottom:20px;width:100%;">
+						<tbody>
+							<tr>
+								<td align="center" bgcolor="#ffffff" height="1" style="padding:30px 40px 5px" valign="top" width="100%">
+									<table cellpadding="0" cellspacing="0" width="100%">
+										<tbody>
+											<tr>
+												<td style="border-top:1px solid #e4e4e4"> </td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td class="content" style="padding:10px 0px 0px 40px">
+									<p>Request #' . $qid . '</p>
+									<p>Item: ' . $product_name . '</p>
+									<p>Buyer: ' . $customer->data->user_login . '</p>
+								    <p>Deliver to: ' . esc_html( WC()->countries->countries[ $mdata->quotation_country ] ) . '</p>
+								</td>
+							</tr>  
+							<tr>
+								<td align="center" bgcolor="#ffffff" height="1" valign="top" width="100%">
+									<table cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;">
+										<tbody>
+										<tr>
+											<td style="text-align:center;" >
+												<a href="' . home_url() . '/my-account/main-quote/' . $qid . '" style="color: #ffffff;background-color:#eb9a72;display:inline-block;font-size:16px;line-height:30px;text-align:center;text-decoration:none;padding:5px 20px;border-radius:3px; text-transform:none; margin:0 auto;margin-bottom:10px;margin-top:15px" class="link__btn">View your request</a> 
+											</td>
+										</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr> 
+							<tr>
+								<td align="center" bgcolor="#ffffff" height="1" style="padding:20px 40px 5px" valign="top" width="100%">
+									<table cellpadding="0" cellspacing="0" width="100%">
+										<tbody>
+											<tr>
+												<td style="border-top:1px solid #e4e4e4"> </td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table> ';
+					$res[] = '<p>Need to change your request? <a href="' . home_url() . '/changing-your-shopping-request">Find out how</a>.</p>';
+					$res[] = '<p>You can also read our <a href="' . home_url() . '/category/for-buyers">Tips and Guides</a> for more info, including how we keep your payment safe.</p>';
+					$res[] = '<p>&nbsp;</p>';
+				}
+			}
+			return $res;
+		}
+
+		public function womprfq_get_mail_quotation_detail_seller($qid, $res)
+		{
+			if (intval($qid) > 0) {
+				$data  = $this->womprfq_get_main_quotation_by_id($qid);
+				$mdata = (object) $this->womprfq_get_quote_meta_info($qid);
+
+				if ($data) {
+					if ($data->product_id != 0) {
+						if ($data->variation_id != 0) {
+							$product_name = get_the_title($data->variation_id);
+						} else {
+							$product_name = get_the_title($data->product_id);
+						}
+					} else {
+						$product_name = $mdata->pro_name;
+					}
+					$quantity = $data->quantity;
+
+					$res[] = 'Please find the following details :';
+					$res[] = 'Requested Quote Topic : ' .  $product_name;
+					$res[] = 'Bulk Quantity Requested : ' . $quantity;
+					$res[] = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ';
+					$res[] = 'Phasellus vel velit pulvinar, posuere nulla quis, faucibus orci. Nulla id diam non nibh pulvinar suscipit.';
+				}
+			}
+			return $res;
+		}
+		
+
 		public function womprfq_notify_sellers_for_quote( $qdata, $qid ) {
+			
+			//JS edit. New Emails - part 1.7
+			global $woocommerce;
 			
 			// JS edit. Add country and city drop down filter and country preference. Step 2
 			$q_meta_data = $this->womprfq_get_quote_meta_info( $qid );
@@ -222,15 +350,107 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 				
 				if ( $user->user_email && ( $user->ID != $customer_id ) ) {
 					$smes  = array(
-						esc_html__( 'A new requested has been submitted by ', 'wk-mp-rfq' ) . get_user_by( 'ID', $customer_id )->user_login . '.',
+						
+						//JS edit. New Emails - part 1.8
+						'<p>Hi ' . $user->user_login . ',</p>',
+						'<p>A new shopping  request has been submitted by ' . get_user_by('ID', $customer_id)->user_login . '.</p>',
+						'<p>If you\'re traveling to their location, why not make an offer to earn some cash?</p>',
+						
 					);
-					$smes  = $this->womprfq_get_mail_quotation_detail( $qid, $smes );
+					
+					//JS edit. New Emails - part 1.9
+					$mdata =  (array) $this->womprfq_get_quote_meta_info($qid);
+
+					$customer = get_userdata($customer_id);
+
+					if ($qdata->product_id != 0) {
+						if ($qdata->variation_id != 0) {
+							$product_name = get_the_title($qdata->variation_id);
+						} else {
+							$product_name = get_the_title($qdata->product_id);
+						}
+					} else {
+						$product_name = $mdata['pro_name'];
+					}
+					$quantity = $qdata->quantity;
+
+					$delivery_location  = $mdata['wpmp-rfq-admin-quote-your_location_(city_and_country)'];
+
+					$smes[] = '<table style="padding-bottom:20px;width:100%;">
+					<tbody>
+						<tr>
+							<td align="center" bgcolor="#ffffff" height="1" style="padding:30px 40px 5px" valign="top" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tbody>
+										<tr>
+											<td style="border-top:1px solid #e4e4e4"> </td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td class="content" style="padding:10px 0px 0px 40px">
+								<p>Request #' . $qid . '</p>
+								<p>Item: ' . $product_name . '</p>
+								<p>Quantity: ' . $quantity . '</p>
+								<p>Buyer: ' . $customer->data->user_login . '</p>
+								<p>Deliver to: ' . esc_html( WC()->countries->countries[ $mdata->quotation_country ] ) . '</p>
+							</td>
+						</tr>  
+						<tr>
+							<td align="center" bgcolor="#ffffff" height="1" valign="top" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;">
+									<tbody>
+									<tr>
+										<td style="text-align:center;" >
+											<a href="' . home_url() . '/seller/add-quote/' . $qid . '" style="color: #ffffff;background-color:#eb9a72;display:inline-block;font-size:16px;line-height:30px;text-align:center;text-decoration:none;padding:5px 20px;border-radius:3px; text-transform:none; margin:0 auto;margin-bottom:10px;margin-top:15px" class="link__btn">View or Make an Offer</a> 
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr> 
+						<tr>
+							<td align="center" bgcolor="#ffffff" height="1" style="padding:20px 40px 5px" valign="top" width="100%">
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tbody>
+										<tr>
+											<td style="border-top:1px solid #e4e4e4"> </td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table> ';
+					$smes[] = '<p>Be quick! If the Buyer accepts an offer from another Personal Shopper, the request will move to Closed.</p>';
+					$smes[] = '<p>Read our <a href="' . home_url() . '/category/for-personal-shoppers"><font color="#eb9a72">Tips and Guides</font></a> for more info, including how to propose a Tip for your service.</p>';
+					$smes[] = '<p>&nbsp;</p>';					
+					
+					
 					$sdata = array(
-						'msg'     => $smes,
+						
+						//JS edit. New Emails - part 1.10
+						'msg'     => join('', $smes),
+						
 						'sendto'  => $user->user_email,
-						'heading' => esc_html__( 'New Request For Quotation', 'wk-mp-rfq' ),
+						
+						//JS edit. New Emails - part 1.11
+						'heading' => esc_html__('Is it time to earn?', 'wk-mp-rfq'),
+						'subject' => esc_html__('Bringit: New shopping request', 'wk-mp-rfq')
+						
 					);
-					do_action( 'womprfq_quotation', $sdata );
+					
+					//JS edit. New Emails - part 1.12
+					$mailer = $woocommerce->mailer();
+					ob_start();
+					wc_get_template('emails/email-header.php', array('email_heading' => $sdata['heading']));
+					echo $sdata['msg'];
+					wc_get_template('emails/email-footer.php');
+					$msg = ob_get_clean();
+					$mailer->send($sdata['sendto'], $sdata['subject'], $msg);
+					
 				}
 			
 			// JS edit. Add country and city drop down filter and country preference. Step 5

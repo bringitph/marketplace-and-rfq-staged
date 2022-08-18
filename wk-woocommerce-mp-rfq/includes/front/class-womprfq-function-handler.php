@@ -296,30 +296,111 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 										'comment_text' => stripslashes( $q_comment ),
 										'sender_id'    => get_current_user_id(),
 										'image'        => $q_comnt_img,
+									
+									//JS edit. New Emails - part 1.17 (lines deleted)
+									
 									);
-									$this->helper->womprfq_update_seller_quotation_comment( $comment_info );
+								
+								//JS edit. New Emails - part 1.18
+								    $this->helper->womprfq_update_seller_quotation_comment($comment_info);
 								}
 
-								if ( $q_status ) {
-									$smes = array(
-										esc_html__( 'Quotation has been accepted by Customer', 'wk-mp-rfq' ) . ' ( #' . intval( $sid ) . ' ).',
-									);
+								if ($q_status) {
+									$smes[] = '<p>Great news - your Buyer has accepted your offer. You got a deal! </p>';
+									$smes[] = '<p>Next step: View the offer from your Deal folder on your Personal Shopper dashboard and click on Finalise to request for payment.</p>';
 								} else {
-									$smes = array(
-										esc_html__( 'Quotation status has been updated by Customer', 'wk-mp-rfq' ) . ' ( #' . intval( $sid ) . ' ).',
-									);
+									$smes[] = '<p>A Buyer has responded to your offer. You can read it from your Inbox on your Personal Shopper dashboard.</p>'; 
+									$smes[] = '<p>Make sure to reply right away and keep them interested!</p>';
 								}
 
-								$smes = $this->helper->womprfq_get_mail_quotation_detail( $sel_q_data->main_quotation_id, $smes );
+								//GET customer id
+								$main_dat = $this->helper->womprfq_get_main_quotation_by_id($sel_q_data->main_quotation_id);
+								//GET Meta DATA
+								$mdata =  $this->helper->womprfq_get_quote_meta_info($sel_q_data->main_quotation_id);
+								$seller  = get_user_by('ID', $sel_q_data->seller_id);
+								$customer = get_user_by('ID', $main_dat->customer_id);
+
+								$smes[] = '<table style="padding-bottom:20px;width:100%;">
+								<tbody>
+									<tr>
+										<td align="center" bgcolor="#ffffff" height="1" style="padding:30px 40px 5px" valign="top" width="100%">
+											<table cellpadding="0" cellspacing="0" width="100%">
+												<tbody>
+													<tr>
+														<td style="border-top:1px solid #e4e4e4"> </td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td class="content" style="padding:10px 0px 0px 40px">
+											<p>Offer #' . $sid . '</p>
+											<p>Personal Shopper: ' . $seller->data->user_login . '</p>
+											<p>Buyer: ' . $customer->data->user_login . '</p>
+											<p>Item: ' . $mdata['pro_name'] . '</p>
+											<p>Deliver to: ' . esc_html( WC()->countries->countries[ $mdata->quotation_country ] ) . '</p>
+										</td>
+									</tr>  
+									<tr>
+										<td align="center" bgcolor="#ffffff" height="1" valign="top" width="100%">
+											<table cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;">
+												<tbody>
+												<tr>
+													<td style="text-align:center;" >
+														<a href="' . home_url() . '/seller/edit-rfq/' . $sid . '" style="color: #ffffff;background-color:#eb9a72;display:inline-block;font-size:16px;line-height:30px;text-align:center;text-decoration:none;padding:5px 20px;border-radius:3px; text-transform:none; margin:0 auto;margin-bottom:10px;margin-top:15px" class="link__btn">View or Reply</a> 
+													</td>
+												</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr> 
+									<tr>
+										<td align="center" bgcolor="#ffffff" height="1" style="padding:20px 40px 5px" valign="top" width="100%">
+											<table cellpadding="0" cellspacing="0" width="100%">
+												<tbody>
+													<tr>
+														<td style="border-top:1px solid #e4e4e4"> </td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+								</tbody>
+							</table> ';
+								if ($q_status) {
+									$smes[] = '<p>If you need help on how to finalize the offer, <a href="' . home_url() . '/how-to-finalize">click here</a>.</p>';
+									$smes[] = '<p>You\'ll be notified once the Buyer has placed the order and submitted their payment. You can also check As Personal Shopper - <a href="' . home_url() . '/seller/deliveries">My Deliveries</a> section on Bringit for updates.</p>';
+									$smes[] = '<p>&nbsp;</p>';
+								} else {
+									$smes[] = '<p>If you need some pointers on how to price your Tip, <a href="' . home_url() . '/proposing-your-tip">click here</a>.</p>';
+									$smes[] = '<p>You can also read our <a href="' . home_url() . '/category/for-personal-shoppers">Tips and Guides</a> for more info, including how we protect our Personal Shoppers.</p>';
+									$smes[] = '<p>&nbsp;</p>';
+								}
+								
 
 								if ( $sel_q_data ) {
 									$user = get_user_by( 'ID', intval( $sel_q_data->seller_id ) );
 									if ( $user ) {
-										$sdata = array(
-											'msg'     => $smes,
-											'sendto'  => $user->user_email,
-											'heading' => esc_html__( 'Quotation Updated', 'wk-mp-rfq' ),
-										);
+										
+										//JS edit. New Emails - part 1.19
+										if ($q_status) {
+											$sdata = array(
+												'msg'     => $smes,
+												'sendto'  => $user->user_email,
+												'heading' => esc_html__('Customer has accepted!', 'wk-mp-rfq'),
+												'subject' => esc_html__('Bringit: You got a Deal!', 'wk-mp-rfq'),
+											);
+										} else {
+											$sdata = array(
+												'msg'     => $smes,
+												'sendto'  => $user->user_email,
+												'heading' => esc_html__('Customer has an update', 'wk-mp-rfq'),
+												'subject' => esc_html__('Bringit: A Buyer has replied', 'wk-mp-rfq'),
+											);
+										}
+										
+										
 										do_action( 'womprfq_quotation', $sdata );
 									}
 								}
@@ -409,20 +490,89 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 									);
 									$this->helper->womprfq_update_seller_quotation_comment( $comment_info );
 								}
-								$smes       = array(
-									esc_html__( 'Quotation status has been updated by Seller', 'wk-mp-rfq' ) . ' ( #' . intval( $sq_id ) . ' ).',
-								);
+								
+								//JS edit. New Emails - part 1.20
+								$smes[] = '<p>You\'ve got an update from a Personal Shopper. View it from your Inbox on your Personal Shopper dashboard.</p>';
+								
 								$sel_q_data = $this->helper->womprfq_get_seller_quotation_details( $sq_id );
 								if ( $sel_q_data ) {
 									$main_dat = $this->helper->womprfq_get_main_quotation_by_id( $sel_q_data->main_quotation_id );
-									$smes     = $this->helper->womprfq_get_mail_quotation_detail( $sel_q_data->main_quotation_id, $smes );
+									
+									//JS edit. New Emails - part 1.21
+									$mdata =  $this->helper->womprfq_get_quote_meta_info($sel_q_data->main_quotation_id);
+									$seller_shopname = get_usermeta($sel_q_data->seller_id, 'shop_name');
+									$seller_shopaddr = get_usermeta($sel_q_data->seller_id, 'shop_address');
+
+
+									$seller  = get_user_by('ID', $sel_q_data->seller_id);
+									$customer = get_user_by('ID', $main_dat->customer_id);
+
+									$smes[]     = '<table style="padding-bottom:20px;width:100%;">
+									<tbody>
+										<tr>
+											<td align="center" bgcolor="#ffffff" height="1" style="padding:30px 40px 5px" valign="top" width="100%">
+												<table cellpadding="0" cellspacing="0" width="100%">
+													<tbody>
+														<tr>
+															<td style="border-top:1px solid #e4e4e4"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td class="content" style="padding:10px 0px 0px 40px">
+												<p>Offer #' . $sq_id . '</p>
+												<p>Personal Shopper: ' . $seller->data->user_login . '</p>
+												<p>Buyer: ' . $customer->data->user_login . '</p>
+												<p>Item: ' . $mdata['pro_name'] . '</p>
+												<p>Deliver to: ' . esc_html( WC()->countries->countries[ $mdata->quotation_country ] ) . '</p>
+											</td>
+										</tr>  
+										<tr>
+											<td align="center" bgcolor="#ffffff" height="1" valign="top" width="100%">
+												<table cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;">
+													<tbody>
+													<tr>
+														<td style="text-align:center;" >
+															<a href="' . home_url() . '/my-account/seller-quote/' . $sq_id . '" style="color: #ffffff;background-color:#eb9a72;display:inline-block;font-size:16px;line-height:30px;text-align:center;text-decoration:none;padding:5px 20px;border-radius:3px; text-transform:none; margin:0 auto;margin-bottom:10px;margin-top:15px" class="link__btn">View or Reply</a> 
+														</td>
+													</tr>
+													</tbody>
+												</table>
+											</td>
+										</tr> 
+										<tr>
+											<td align="center" bgcolor="#ffffff" height="1" style="padding:20px 40px 5px" valign="top" width="100%">
+												<table cellpadding="0" cellspacing="0" width="100%">
+													<tbody>
+														<tr>
+															<td style="border-top:1px solid #e4e4e4"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+										</tr>
+									</tbody>
+								</table> 
+								<p>You can accept their offer right away, or negotiate the terms further in the Comments section of the offer. Best of luck!</p>
+								<p>Read our <a href="' . home_url() . '/category/for-buyers">Tips and Guides</a> for more info, including how we keep your payment safe.</p>
+								<p>&nbsp;</p>';
+									
+									
+									
 									if ( $main_dat ) {
 										$user = get_user_by( 'ID', $main_dat->customer_id );
 										if ( $user ) {
 											$sdata = array(
 												'msg'     => $smes,
 												'sendto'  => $user->user_email,
-												'heading' => esc_html__( 'Quotation Updated', 'wk-mp-rfq' ),
+												
+												//JS edit. New Emails - part 1.22
+												'heading' => 'Check this out',
+												'subject' => 'Bringit: A Personal Shopper has replied',
+												
+												
 											);
 											do_action( 'womprfq_quotation', $sdata );
 										}

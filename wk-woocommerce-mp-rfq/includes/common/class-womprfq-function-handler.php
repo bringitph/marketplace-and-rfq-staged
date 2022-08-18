@@ -414,10 +414,71 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 									//JS edit. Cancel this request button on Buyers RFQ. Step 2
 									$this->helper->womprfq_update_main_quotation_status( $main_data->id, 3 );
 
-									$smes       = array(
-										esc_html__( 'Quotation has been approved by Seller', 'wk-mp-rfq' ) . ' ( #' . intval( $sup_q->id ) . ' ).',
-									);
+									//JS edit. New Emails - part 1.14
+									$smes[] = '<p>Great news! Your Personal Shopper has finalised their offer and it\'s now ready for payment.</p>';
+									$smes[] = '<p>View the offer from your Closed folder on your Buyer dashboard, add to cart and proceed to pay.</p>';
+									$smes[] = '<p>Remember, your payment stays with us for your protection. We\'ll release it to them only after you\'ve received and inspected your item.</p>';
+									
 									$sel_q_data = $this->helper->womprfq_get_seller_quotation_details( $sup_q->id );
+									
+									//JS edit. New Emails - part 1.15
+									$seller  = get_user_by('ID', $sel_q_data->seller_id);
+									$customer = get_user_by('ID', $main_data->customer_id);
+									$seller_shopname = get_usermeta($sel_q_data->seller_id, 'shop_name');
+									$seller_shopaddr = get_usermeta($sel_q_data->seller_id, 'shop_address');
+									$mdata =  $this->helper->womprfq_get_quote_meta_info($main_data->id);
+									$smes[] = '<table style="padding-bottom:20px;width:100%;">
+										<tbody>
+											<tr>
+												<td align="center" bgcolor="#ffffff" height="1" style="padding:30px 40px 5px" valign="top" width="100%">
+													<table cellpadding="0" cellspacing="0" width="100%">
+														<tbody>
+															<tr>
+																<td style="border-top:1px solid #e4e4e4"> </td>
+															</tr>
+														</tbody>
+													</table>
+												</td>
+											</tr>
+											<tr>
+												<td class="content" style="padding:10px 0px 0px 40px">
+													<p>Offer #' . $sel_q_data->id . '</strong></p>
+													<p>Personal Shopper: ' . $seller->data->user_login . '</p>
+													<p>Buyer: ' . $customer->data->user_login . '</p>
+													<p>Item: ' . $mdata['pro_name'] . '</p>
+													<p>Deliver to: ' . esc_html( WC()->countries->countries[ $mdata->quotation_country ] ) . '</p>
+												</td>
+											</tr>  
+											<tr>
+												<td align="center" bgcolor="#ffffff" height="1" valign="top" width="100%">
+													<table cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;">
+														<tbody>
+														<tr>
+															<td style="text-align:center;" >
+																<a href="' . home_url() . '/my-account/seller-quote/' . $sel_q_data->id . '" style="color: #ffffff;background-color:#eb9a72;display:inline-block;font-size:16px;line-height:30px;text-align:center;text-decoration:none;padding:5px 20px;border-radius:3px; text-transform:none; margin:0 auto;margin-bottom:10px;margin-top:15px" class="link__btn">View and Place Order</a> 
+															</td>
+														</tr>
+														</tbody>
+													</table>
+												</td>
+											</tr>
+											<tr>
+												<td align="center" bgcolor="#ffffff" height="1" style="padding:20px 40px 5px" valign="top" width="100%">
+													<table cellpadding="0" cellspacing="0" width="100%">
+														<tbody>
+															<tr>
+																<td style="border-top:1px solid #e4e4e4"> </td>
+															</tr>
+														</tbody>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table> ';
+									$smes[] = '<p>Your Personal Shopper will be notified after you\'ve made your payment, so they can buy your item from their local store. </p>';
+									$smes[] = '<p>You can also read our <a href="' . home_url() . '/category/for-buyers">Tips and Guides</a> for more info, including how we protect your payment.</p>';
+									
+									
 									if ( $sel_q_data ) {
 										$main_dat = $this->helper->womprfq_get_main_quotation_by_id( $sel_q_data->main_quotation_id );
 										$smes     = $this->helper->womprfq_get_mail_quotation_detail( $sel_q_data->main_quotation_id, $smes );
@@ -427,7 +488,11 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 												$sdata = array(
 													'msg' => $smes,
 													'sendto' => $user->user_email,
-													'heading' => esc_html__( 'Quotation Updated', 'wk-mp-rfq' ),
+													
+													//JS edit. New Emails - part 1.16
+													'heading' => esc_html__('Place order now', 'wk-mp-rfq'),
+													'subject' => esc_html__('Bringit: You can now place an order', 'wk-mp-rfq'),
+													
 												);
 												do_action( 'womprfq_quotation', $sdata );
 											}
