@@ -40,13 +40,25 @@ if ( ! class_exists( 'Womprfq_Front_Templates' ) ) {
 		}
 
 		public function womprfq_get_main_quote_template( $data ) {
+			//JS edit. Prevent Reply to own RFQ. Step 4
+			global $wp_query;
+			if ( isset( $wp_query->query_vars['main_page'] ) && 'add-quote' === $wp_query->query_vars['main_page'] ) {
+				if ( intval( $data->customer_id ) === get_current_user_id() ) {
+					wp_safe_redirect( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) );
+					die;
+				}
+			}
+			$quote_d = $this->helper->womprfq_get_quote_meta_info( $data->id );
+			
 			?>
 			<div class="wk-rfq-main-quote-wrapper">
 				<div class="wk-rfq-main-quote">
 					<table class="widefat">
 						<tbody>
 							<?php
-							$quote_d = $this->helper->womprfq_get_quote_meta_info( $data->id );
+							
+							//JS edit. Prevent Reply to own RFQ. Step 5 (line deleted)
+							
 							if ( $data->variation_id != 0 ) {
 								$product = get_the_title( $data->variation_id ) . ' ( #' . intval( $data->variation_id ) . ' )';
 							} elseif ( $data->variation_id == 0 && $data->product_id != 0 ) {
@@ -113,7 +125,10 @@ if ( ! class_exists( 'Womprfq_Front_Templates' ) ) {
 									</td>
 									<td class="product-total toptable">
 										<?php
-										if ( $key == 'image' ) {
+										
+										//JS edit. Prevent Reply to own RFQ. Step 6
+										if ( 'image' === $key ) {
+										
 											$img_str = '';
 											$imge    = explode( ',', $s_data['value'] );
 											if ( $imge ) {

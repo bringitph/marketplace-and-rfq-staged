@@ -34,7 +34,14 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 
 		public function womprfq_add_quote_system_btn() {
 			global $product;
+			//JS edit. Prevent Reply to own RFQ. Step 1
+			$product_id  = $product->get_id();
+			$post_obj    = get_post( $product_id ); // The WP_Post object
+			$post_author = $post_obj->post_author;
+			
 			if ( is_user_logged_in() && $this->helper->enabled ) {
+				//JS edit. Prevent Reply to own RFQ. Step 2
+				if ( intval( $post_author ) !== get_current_user_id() ) {
 
 				$supported_type = array( 'variable', 'simple' );
 				if ( in_array( $product->get_type(), $supported_type ) ) {
@@ -140,6 +147,9 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 					<div class="wk-mp-loader-rfq" id="wk-mp-loader-rfq"><div class="wk-mp-spinner wk-mp-skeleton"><!--////--></div></div>
 					<?php
 				}
+			//JS edit. Prevent Reply to own RFQ. Step 3
+			}
+			
 			} else {
 				if ( $this->helper->enabled ) {
 
