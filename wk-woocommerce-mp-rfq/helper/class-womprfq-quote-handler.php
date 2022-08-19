@@ -355,6 +355,8 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 						'<p>Hi ' . $user->user_login . ',</p>',
 						'<p>A new shopping  request has been submitted by ' . get_user_by('ID', $customer_id)->user_login . '.</p>',
 						'<p>If you\'re traveling to their location, why not make an offer to earn some cash?</p>',
+						//JS edit. New RFQ email to sellers - Negotiate date
+						'<p>Try to negotiate the delivery or meet-up date to match your travel plans.</p>',
 						
 					);
 					
