@@ -317,16 +317,16 @@ if ( ! class_exists( 'Womprfq_Seller_Template' ) ) {
 						$seller_id = get_current_user_id();	
 						if ( $seller_data ) {
 							
-							if($seller_id == $seller_data->seller_id ){
+							//JS edit. Prevent Reply to own RFQ. Step 7 (line deleted)
+							
 								$main_quote_info = $this->helper->womprfq_get_main_quotation_by_id( intval( $seller_data->main_quotation_id ) );
 								$temp_obj        = new Front\Womprfq_Front_Templates();
 								$temp_obj->womprfq_get_main_quote_template( $main_quote_info );
 								$edit_obj = new Front\Seller\Womprfq_Edit_Seller_Quote( intval( $wp_query->query_vars['info'] ) );
 								$edit_obj->womprfq_prepare_seller_edit_template( $seller_data );
-							} else {
-								wp_safe_redirect( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) );
-								die;
-							}
+							
+							//JS edit. Prevent Reply to own RFQ. Step 8 (line deleted)
+							
 						}
 					}
 					?>
@@ -344,7 +344,9 @@ if ( ! class_exists( 'Womprfq_Seller_Template' ) ) {
 						<table class="form-table wc_status_table widefat">
 							<tbody>
 								<?php
-								if ( intval( $main_quote_info->status ) == 1 ) {
+								
+								//JS edit. Prevent Reply to own RFQ. Step 9 (line deleted)
+								if ( intval( $main_quote_info->status ) === 1 ) {
 									?>
 									<tr valign="top">
 										<th>
