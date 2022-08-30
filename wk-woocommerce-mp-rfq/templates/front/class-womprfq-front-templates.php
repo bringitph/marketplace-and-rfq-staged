@@ -70,7 +70,7 @@ if ( ! class_exists( 'Womprfq_Front_Templates' ) ) {
 							}
 							$sh_data = array(
 								'main_quotation_id' => array(
-									// Jesse edit: Change header of Quotation ID in Main RFQ Details table visible to Buyer and Seller
+									// JS edit: Change header of Quotation ID in Main RFQ Details table visible to Buyer and Seller
 									'title' => esc_html__( 'Request', 'wk-mp-rfq' ),
 									'value' => '' . intval( $data->id ),
 								),
@@ -165,6 +165,13 @@ if ( ! class_exists( 'Womprfq_Front_Templates' ) ) {
 										</td>
 										<td class="product-total toptable">
 											<?php
+												//JS edit: Change date format in main RFQ table
+												if($key=="deliverbefore") {
+												$time = strtotime($value);
+												$newformat = date('Y M-d',$time);
+												echo $newformat;    } 
+												else 
+												
 												echo esc_html( $value );
 											?>
 										</td>
@@ -172,7 +179,7 @@ if ( ! class_exists( 'Womprfq_Front_Templates' ) ) {
 									<?php
 								}
 							}
-							// Jesse edit: Add Total Quotes received on Main quotation table
+							// JS edit: Add Total Quotes received on Main quotation table
 							$user = wp_get_current_user();
 							$current_login_user_id = ($user->data->ID);
  							$roles = ( array ) $user->roles;
