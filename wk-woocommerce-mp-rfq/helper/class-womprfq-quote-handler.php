@@ -155,22 +155,16 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 						$this->womprfq_notify_sellers_for_quote( $this->womprfq_get_main_quotation_by_id( $id ), $id );
 					}
 
-					//JS edit. Add city and country to email, and item name to admin. Step 1
-					$mdata = (array) $this->womprfq_get_quote_meta_info($id);
-					$destination_string = WC()->countries->get_states($mdata["quotation_country"])[$mdata["quotation_state"]] . ', ' . WC()->countries->countries[$mdata["quotation_country"]];
-					
 					// to admin
 					$ames  = array(
 						//JS edit. New Emails - part 1.4
 						esc_html__( 'A new shopping request has been submitted by ', 'wk-mp-rfq' ) . get_user_by( 'ID', $data['customer_id'] )->user_login . 
-						//JS edit. Add city and country to email, and item name to admin. Step 2
-						'.<p>Deliver to: ' . $destination_string . ', </p>
-						<p>Item: ' . $mdata['pro_name'] . ' </p>
+						'.<p>Deliver to: </p>
+						<p>Item: </p>
 						<p><a href="' . home_url() . '/">Bringit.ph</a><br/><br/></p>',
 						
 					);
-					//JS edit. Add city and country to email, and item name to admin. Step 3
-					//$ames  = $this->womprfq_get_mail_quotation_detail( $id, $ames );
+					$ames  = $this->womprfq_get_mail_quotation_detail( $id, $ames );
 					$adata = array(
 						'msg'     => $ames,
 						'sendto'  => get_option( 'admin_email' ),
@@ -227,10 +221,7 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 
 				$array_mdata = (array) $mdata;
 
-				//JS edit. Add city and country to email, and item name to admin. Step 4
-				$destination_string = WC()->countries->get_states($array_mdata["quotation_country"])[$array_mdata["quotation_state"]] . ', ' . WC()->countries->countries[$array_mdata["quotation_country"]];				
-				//$delivery_location  = $array_mdata['wpmp-rfq-admin-quote-your_location_(city_and_country)'];
-
+				$delivery_location  = $array_mdata['wpmp-rfq-admin-quote-your_location_(city_and_country)'];
 				$customer = get_userdata($data->customer_id);
 
 
@@ -264,7 +255,7 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 									<p>Request #' . $qid . '</p>
 									<p>Item: ' . $product_name . '</p>
 									<p>Buyer: ' . $customer->data->user_login . '</p>
-								    <p>Deliver to: ' . esc_html($destination_string) . '</p>
+								    <p>Deliver to: ' . esc_html( WC()->countries->countries[ $mdata->quotation_country ] ) . '</p>
 								</td>
 							</tr>  
 							<tr>
@@ -385,9 +376,7 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 					}
 					$quantity = $qdata->quantity;
 
-					//JS edit. Add city and country to email, and item name to admin. Step 6
-					$destination_string = WC()->countries->get_states($mdata["quotation_country"])[$mdata["quotation_state"]] . ', ' . WC()->countries->countries[$mdata["quotation_country"]];
-					//$delivery_location  = $mdata['wpmp-rfq-admin-quote-your_location_(city_and_country)'];
+					$delivery_location  = $mdata['wpmp-rfq-admin-quote-your_location_(city_and_country)'];
 
 					$smes[] = '<table style="padding-bottom:20px;width:100%;">
 					<tbody>
@@ -408,7 +397,7 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 								<p>Item: ' . $product_name . '</p>
 								<p>Quantity: ' . $quantity . '</p>
 								<p>Buyer: ' . $customer->data->user_login . '</p>
-								<p>Deliver to: ' . esc_html($destination_string) . '</p>
+								<p>Deliver to: ' . esc_html( WC()->countries->countries[ $mdata->quotation_country ] ) . '</p>
 							</td>
 						</tr>  
 						<tr>
