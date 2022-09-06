@@ -329,6 +329,9 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 								$mdata =  $this->helper->womprfq_get_quote_meta_info($sel_q_data->main_quotation_id);
 								$seller  = get_user_by('ID', $sel_q_data->seller_id);
 								$customer = get_user_by('ID', $main_dat->customer_id);
+								
+								//JS edit. Add city and country to email, and item name to admin. Step 10
+								$destination_string = WC()->countries->get_states($mdata["quotation_country"])[$mdata["quotation_state"]] . ', ' . WC()->countries->countries[$mdata["quotation_country"]];
 
 								$smes[] = '<table style="padding-bottom:20px;width:100%;">
 								<tbody>
@@ -349,7 +352,7 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 											<p>Personal Shopper: ' . $seller->data->user_login . '</p>
 											<p>Buyer: ' . $customer->data->user_login . '</p>
 											<p>Item: ' . $mdata['pro_name'] . '</p>
-											<p>Deliver to: ' . esc_html( WC()->countries->countries[ $mdata->quotation_country ] ) . '</p>
+											<p>Deliver to: ' . esc_html($destination_string) . '</p>
 										</td>
 									</tr>  
 									<tr>
@@ -512,8 +515,10 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 									$mdata =  $this->helper->womprfq_get_quote_meta_info($sel_q_data->main_quotation_id);
 									$seller_shopname = get_usermeta($sel_q_data->seller_id, 'shop_name');
 									$seller_shopaddr = get_usermeta($sel_q_data->seller_id, 'shop_address');
-
-
+									
+									//JS edit. Add city and country to email, and item name to admin. Step 11
+									$destination_string = WC()->countries->get_states($mdata["quotation_country"])[$mdata["quotation_state"]] . ', ' . WC()->countries->countries[$mdata["quotation_country"]];
+									
 									$seller  = get_user_by('ID', $sel_q_data->seller_id);
 									$customer = get_user_by('ID', $main_dat->customer_id);
 
@@ -536,7 +541,7 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 												<p>Personal Shopper: ' . $seller->data->user_login . '</p>
 												<p>Buyer: ' . $customer->data->user_login . '</p>
 												<p>Item: ' . $mdata['pro_name'] . '</p>
-												<p>Deliver to: ' . esc_html( WC()->countries->countries[ $mdata->quotation_country ] ) . '</p>
+												<p>Deliver to: ' . esc_html($destination_string) . '</p>
 											</td>
 										</tr>  
 										<tr>
