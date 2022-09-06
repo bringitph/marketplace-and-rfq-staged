@@ -366,7 +366,8 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 						//JS edit. Add unsubscribe text in email to sellers.
 						'<p>If you\'re traveling to their location, why not make an offer to earn some cash? You can also try to negotiate the delivery or meet-up date to match your travel plans.</p>',
 						//JS edit. New RFQ email to sellers - Negotiate date
-						'<p>If you wish to unsubscribe from shopping alerts like this, or change the delivery location on your watchlist, simply update your subscription preferences on your <a href="' . home_url() . '/my-account"><font color="#eb9a72">Profile</font></a>. </p>',
+						//JS edit. Add unsubscribe text in email to sellers in bottom email. Part 1
+						'',
 						
 					);
 					
@@ -440,6 +441,8 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 				</table> ';
 					$smes[] = '<p>Be quick! If the Buyer accepts an offer from another Personal Shopper, the request will move to Closed.</p>';
 					$smes[] = '<p>Read our <a href="' . home_url() . '/category/for-personal-shoppers"><font color="#eb9a72">Tips and Guides</font></a> for more info, including how to propose a Tip for your service.</p>';
+					//JS edit. Add unsubscribe text in email to sellers in bottom email. Part 2
+					$smes[] = '<p>If you wish to unsubscribe from shopping alerts like this, or change the delivery location on your watchlist, you can always update your subscription preferences on your <a href="' . home_url() . '/my-account"><font color="#eb9a72">Profile</font></a>. </p>';
 					$smes[] = '<p>&nbsp;</p>';					
 					
 					
