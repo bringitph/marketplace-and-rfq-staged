@@ -363,9 +363,10 @@ if ( ! class_exists( 'Womprfq_Quote_Handler' ) ) {
 						//JS edit. New Emails - part 1.8
 						'<p>Hi ' . $user->user_login . ',</p>',
 						'<p>A new shopping  request has been submitted by ' . get_user_by('ID', $customer_id)->user_login . '.</p>',
-						'<p>If you\'re traveling to their location, why not make an offer to earn some cash?</p>',
+						//JS edit. Add unsubscribe text in email to sellers.
+						'<p>If you\'re traveling to their location, why not make an offer to earn some cash? You can also try to negotiate the delivery or meet-up date to match your travel plans.</p>',
 						//JS edit. New RFQ email to sellers - Negotiate date
-						'<p>Try to negotiate the delivery or meet-up date to match your travel plans.</p>',
+						'<p>If you wish to unsubscribe from shopping alerts like this, or change the delivery location on your watchlist, simply update your subscription preferences on your <a href="' . home_url() . '/my-account"><font color="#eb9a72">Profile</font></a>. </p>',
 						
 					);
 					
