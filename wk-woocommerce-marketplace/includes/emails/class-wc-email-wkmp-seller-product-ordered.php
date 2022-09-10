@@ -72,10 +72,11 @@ if ( ! class_exists( 'WC_Email_WKMP_Seller_Product_Ordered' ) ) {
 			);
 
 			// Update seller emails in meta to duplicate emails sending on order going to processing.
-			$sent_emails   = get_post_meta( $order_id, 'wkmp_product_ordered_sent_emails', true );
-			$sent_emails   = is_array( $sent_emails ) ? $sent_emails : array();
-			$sent_emails[] = $seller_email;
-			update_post_meta( $order_id, 'wkmp_product_ordered_sent_emails', $sent_emails );
+			//JS edit. Send processing email to seller when via credit card. Step 5
+			//$sent_emails   = get_post_meta( $order_id, 'wkmp_product_ordered_sent_emails', true );
+			//$sent_emails   = is_array( $sent_emails ) ? $sent_emails : array();
+			//$sent_emails[] = $seller_email;
+			//update_post_meta( $order_id, 'wkmp_product_ordered_sent_emails', $sent_emails );
 
 			if ( $this->is_enabled() && $mail_to ) {
 				$this->send( $mail_to, $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );

@@ -55,9 +55,7 @@ if ( ! class_exists( 'WKMP_Notification_Functions' ) ) {
 			$order               = wc_get_order( $order_id );
 			$send_mail_to_seller = apply_filters( 'wkmp_send_notification_mail_to_seller_for_new_order', true, $order );
 
-			//JS edit. Send processing email to seller when via credit card. Step 3
-			$send_product_ordered = apply_filters( 'wkmp_send_product_ordered_mail_to_seller', true, $order );
-			if ( $send_mail_to_seller && $send_product_ordered ) {
+			if ( $send_mail_to_seller ) {
 				$this->wkmp_send_mail_to_inform_seller( $order );
 			}
 

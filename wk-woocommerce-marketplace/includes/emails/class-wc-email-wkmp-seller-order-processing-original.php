@@ -54,15 +54,13 @@ if ( ! class_exists( 'WC_Email_WKMP_Seller_Order_Processing' ) ) {
 		 * @param string $seller_email Seller Email.
 		 */
 		public function trigger( $order_id, $items, $seller_email ) {
-			
-			//JS edit. Send processing email to seller when via credit card. Step 4
-			//$ordered_sent_emails = get_post_meta( $order_id, 'wkmp_product_ordered_sent_emails', true );
+			$ordered_sent_emails = get_post_meta( $order_id, 'wkmp_product_ordered_sent_emails', true );
 
-			//if ( in_array( $seller_email, $ordered_sent_emails, true ) ) {
-			//	unset( $ordered_sent_emails[ array_search( $seller_email, $ordered_sent_emails, true ) ] );
-			//	update_post_meta( $order_id, 'wkmp_product_ordered_sent_emails', $ordered_sent_emails );
-			//	return false;
-			//}
+			if ( in_array( $seller_email, $ordered_sent_emails, true ) ) {
+				unset( $ordered_sent_emails[ array_search( $seller_email, $ordered_sent_emails, true ) ] );
+				update_post_meta( $order_id, 'wkmp_product_ordered_sent_emails', $ordered_sent_emails );
+				return false;
+			}
 
 			$this->setup_locale();
 			$this->wkmp_set_placeholder_value( $order_id );
