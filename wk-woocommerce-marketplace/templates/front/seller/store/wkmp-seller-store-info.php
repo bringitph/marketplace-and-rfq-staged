@@ -188,7 +188,8 @@ if ( empty( $mp_page_title ) ) {
 			                'author'         => $this->seller_id,
 			                'post_type'      => 'product',
 			                'post_status'    => 'publish',
-			                'posts_per_page' => 9,
+			                //JS edit. Limit products on seller profile page
+			                'posts_per_page' => 8,
 			                'paged'          => $page_no,
 		                                   );
 		                $query_args = apply_filters( 'mp_seller_collection_product_args', $query_args );
