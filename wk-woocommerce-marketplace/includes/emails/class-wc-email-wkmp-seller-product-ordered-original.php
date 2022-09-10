@@ -14,30 +14,31 @@ if ( ! trait_exists( 'WC_Email_WKMP_Settings' ) ) {
 	require_once __DIR__ . '/trait-wc-email-wkmp-settings.php';
 }
 
-if ( ! class_exists( 'WC_Email_WKMP_Seller_Order_Processing' ) ) {
+if ( ! class_exists( 'WC_Email_WKMP_Seller_Product_Ordered' ) ) {
 	/**
-	 * Class WC_Email_WKMP_Seller_Order_Processing
+	 * Class WC_Email_WKMP_Seller_Product_Ordered
 	 *
 	 * @package WkMarketplace\Includes\Emails
 	 */
-	class WC_Email_WKMP_Seller_Order_Processing extends \WC_Email {
+	class WC_Email_WKMP_Seller_Product_Ordered extends \WC_Email {
 		use WC_Email_WKMP_Settings;
 		/**
 		 * Constructor of the class.
 		 *
-		 * WC_Email_WKMP_Seller_Order_Processing constructor.
+		 * WC_Email_WKMP_Seller_Product_Ordered constructor.
 		 */
 		public function __construct() {
-			$this->id          = 'wkmp_seller_order_processing';
-			$this->title       = esc_html__( 'Seller Order Processing', 'wk-marketplace' );
-			$this->description = esc_html__( 'This is an order notification sent to sellers containing order details on processing.', 'wk-marketplace' );
+			$this->id          = 'wkmp_seller_product_ordered';
+			$this->title       = esc_html__( 'Seller Product Ordered', 'wk-marketplace' );
+			$this->description = esc_html__( 'This is an order notification sent to sellers containing their ordered product(s) details after payment.', 'wk-marketplace' );
 
 			$this->wkmp_default_email_place_holder();
 
-			$this->template_html = 'emails/wkmp-seller-order-processing.php';
-			$this->template_base = WKMP_PLUGIN_FILE . 'woocommerce/templates/';
+			$this->template_html  = 'emails/wkmp-seller-product-ordered.php';
+			$this->template_plain = 'emails/plain/wkmp-seller-product-ordered.php';
+			$this->template_base  = WKMP_PLUGIN_FILE . 'woocommerce/templates/';
 
-			add_action( 'wkmp_seller_order_processing_notification', array( $this, 'trigger' ), 10, 3 );
+			add_action( 'wkmp_seller_product_ordered_notification', array( $this, 'trigger' ), 10, 3 );
 
 			// Call parent constructor.
 			parent::__construct();
@@ -51,25 +52,16 @@ if ( ! class_exists( 'WC_Email_WKMP_Seller_Order_Processing' ) ) {
 		 *
 		 * @param int    $order_id Order id.
 		 * @param array  $items Items.
-		 * @param string $seller_email Seller Email.
+		 * @param string $seller_email Seller email.
 		 */
 		public function trigger( $order_id, $items, $seller_email ) {
-			
-			//JS edit. Send processing email to seller when via credit card. Step 4
-			//$ordered_sent_emails = get_post_meta( $order_id, 'wkmp_product_ordered_sent_emails', true );
-
-			//if ( in_array( $seller_email, $ordered_sent_emails, true ) ) {
-			//	unset( $ordered_sent_emails[ array_search( $seller_email, $ordered_sent_emails, true ) ] );
-			//	update_post_meta( $order_id, 'wkmp_product_ordered_sent_emails', $ordered_sent_emails );
-			//	return false;
-			//}
-
 			$this->setup_locale();
+
 			$this->wkmp_set_placeholder_value( $order_id );
 
 			$mail_to = empty( $this->get_recipient() ) ? $seller_email : $this->get_recipient();
 
-			$this->data      = array(
+			$this->data = array(
 				'order_id'        => $order_id,
 				'seller_email'    => $seller_email,
 				'recipient'       => $this->get_recipient(),
@@ -78,7 +70,12 @@ if ( ! class_exists( 'WC_Email_WKMP_Seller_Order_Processing' ) ) {
 				'date_string'     => $this->wkmp_get_email_date_string( $order_id ),
 				'commission_data' => $this->wkmp_get_email_commission_data( $seller_email, $order_id ),
 			);
-			$this->recipient = $mail_to;
+
+			// Update seller emails in meta to duplicate emails sending on order going to processing.
+			$sent_emails   = get_post_meta( $order_id, 'wkmp_product_ordered_sent_emails', true );
+			$sent_emails   = is_array( $sent_emails ) ? $sent_emails : array();
+			$sent_emails[] = $seller_email;
+			update_post_meta( $order_id, 'wkmp_product_ordered_sent_emails', $sent_emails );
 
 			if ( $this->is_enabled() && $mail_to ) {
 				$this->send( $mail_to, $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
@@ -94,14 +91,14 @@ if ( ! class_exists( 'WC_Email_WKMP_Seller_Order_Processing' ) ) {
 		 * @return string
 		 */
 		public function get_default_heading() {
-			return __( 'Your Order: #{order_number} status changed to processing.', 'wk-marketplace' );
+			return __( 'New Order: #{order_number} for Your Product(s)', 'wk-marketplace' );
 		}
 
 		/**
 		 * Default Additional content.
 		 */
 		public function get_default_subject() {
-			return __( '[{site_title}]: Your order #{order_number} status changed processed.', 'wk-marketplace' );
+			return __( '[{site_title}]: New order #{order_number} for your Products(s)', 'wk-marketplace' );
 		}
 	}
 }

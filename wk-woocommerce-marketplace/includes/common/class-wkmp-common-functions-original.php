@@ -183,9 +183,6 @@ if ( ! class_exists( 'WKMP_Common_Functions' ) ) {
 			}
 
 			$order_status = $order->get_status();
-			
-			//JS edit. Send processing email to seller when via credit card. Step 1
-			$send_processing_mail_to_seller = apply_filters( 'wkmp_send_processing_mail_to_seller', true, $order );
 
 			foreach ( $sellers as $seller_email => $items ) {
 				if ( 'cancelled' === $order_status ) {
@@ -194,8 +191,7 @@ if ( ! class_exists( 'WKMP_Common_Functions' ) ) {
 					do_action( 'wkmp_seller_order_failed', $sell_order_id, $items, $seller_email );
 				} elseif ( 'on-hold' === $order_status ) {
 					do_action( 'wkmp_seller_order_on_hold', $sell_order_id, $items, $seller_email );
-				//JS edit. Send processing email to seller when via credit card. Step 2
-				} elseif ( 'processing' === $order_status && $send_processing_mail_to_seller ) {
+				} elseif ( 'processing' === $order_status ) {
 					do_action( 'wkmp_seller_order_processing', $sell_order_id, $items, $seller_email );
 				} elseif ( 'completed' === $order_status ) {
 					do_action( 'wkmp_seller_order_completed', $sell_order_id, $items, $seller_email );
