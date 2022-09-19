@@ -479,6 +479,18 @@ if ( ! class_exists( 'Womprfq_Function_Handler' ) ) {
 							} else {
 								$q_comnt_img = null;
 							}
+							
+							//JS edit. Maximum quotation amount
+							if ( $action == 'add' && $q_quantity * $q_price > 10000 ) {
+								wc_add_notice( esc_html__( 'Sorry, your offer exceeds the maximum allowed right now (PHP 10,000)', 'wk-mp-rfq' ), 'error' );
+								wp_safe_redirect( esc_url( site_url( esc_html( $page_name ) . '/add-quote/' . intval( $sq_id ) ) ) );
+								die;
+							}							
+							if ( $action == 'edit' && $q_quantity * $q_price > 10000 ) {
+								wc_add_notice( esc_html__( 'Sorry, your offer exceeds the maximum allowed right now (PHP 10,000)', 'wk-mp-rfq' ), 'error' );
+								wp_safe_redirect( esc_url( site_url( esc_html( $page_name ) . '/edit-rfq/' . intval( $sq_id ) ) ) );
+								die;
+							}	
 
 							$info = array(
 								'id'         => $sq_id,
